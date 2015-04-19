@@ -63,6 +63,9 @@ $System_Name = "YOUR SYSTEM NAME";
 $Nr_Colums = 5;
 ?>
 ```
+Credits; 
+All people from the forum topic. suggestions, coding, testing, etc
+
 
 #Note:
 This code is as is. 
