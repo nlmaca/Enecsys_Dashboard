@@ -1,5 +1,5 @@
 # Enecsys_Dashboard
-is based on the need for a Dashboard to monitor on a local server.
+is based on the need for a Solar Dashboard to monitor on a local server. to monitor the enecsys inverters 
 
 It needs the database of the script that Omoerkbeek generates: https://github.com/omoerbeek/e2pv
 
