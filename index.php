@@ -14,6 +14,8 @@
  * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
+ header("Refresh:10"); // ververst de page elke 10 seconden
+ 
 ?>
 <html>
 	<head>
@@ -27,7 +29,6 @@
 <?
 require_once 'inc/conf.php';
 
-header("Refresh:10"); // ververst de page elke 10 seconden
 echo "System name: " . $System_Name; // can gedefineerd worden in de conf.php
 $conn = mysqli_connect($dbHost, $dbUserName, $dbUserPasswd, $dbName);
 	if (!$conn) {
@@ -86,7 +87,7 @@ $output= mysqli_query($conn,"SELECT inverter_serial FROM inverters");
 			echo "<tr><td>DCPower:</td><td>" .  $row['dcpower']  . "</td></tr>" ;
 			echo "<tr><td>DCCurrent:</td><td>" .  $row['dccurrent']  . "</td></tr>" ;
 			echo "<tr><td>ACFreq:</td><td>" .  $row['acfreq']  . "</td></tr>" ;
-			echo "<tr><td>DCVolt:</td><td>" .  number_format($dcvolt,2,',','.')  . "</td></tr>" ;
+			echo "<tr><td>DCVolt:</td><td>" .  number_format($dcvolt,2)  . "</td></tr>" ;
 			echo "<tr><td>ACVolt:</td><td>" .  $row['acvolt']  . "</td></tr>" ;
 			echo "<tr><td>Temp:</td><td>" .  $row['temp']  . "</td></tr>" ;
 			echo "<tr><td>Efficiency:</td><td>" .  $row['efficiency']  . "</td></tr>" ;
@@ -104,7 +105,7 @@ $output= mysqli_query($conn,"SELECT inverter_serial FROM inverters");
 		}
 	}
 echo "</tr></table>";
-echo  "Totaal aantal inverters: " . $row_cnt . " | Total Power: " . $sumPower . " Watt / " . " | Total VDC: " .  number_format($sumVDC,2,',','.')  . " | Total Amps: "  . $sumAmps . " | Total Kwh: " . $sumKwh ;
+echo  "Totaal aantal inverters: " . $row_cnt . " | Total Power: " . $sumPower . " Watt / " . " | Total VDC: " .  number_format($sumVDC,2)  . " | Total Amps: "  . $sumAmps . " | Total Kwh: " . $sumKwh ;
 echo "<br><br>PVOutput Enecsys Team page: <a href='http://www.pvoutput.org/ladder.jsp?tid=1018' target='_blank'>Enecsys by Tweakers</a>";
 mysqli_close($conn);
 ?>
