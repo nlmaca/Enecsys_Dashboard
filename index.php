@@ -64,6 +64,8 @@ $output= mysqli_query($conn,"SELECT inverter_serial FROM inverters");
 			//calculate DCVolt for every inverter.
 			$dcvolt = $row['dcpower'] / $row['dccurrent'];
 			
+			$accurrent = $row['dcpower'] / $row['acvolt'];
+			
 			/* SUM calculate for result for all inverters*/
 			// calculate sum dc power (total)
 			$sump_value = $row['dcpower'];
@@ -84,8 +86,9 @@ $output= mysqli_query($conn,"SELECT inverter_serial FROM inverters");
 			echo"<td bgcolor='#cccccc'><table>";
 			echo "<tr><td>Inverter:</td><td>" .  $row['id']  . "</td></tr>" ;
 			echo "<tr><td>Update:</td><td>" .  $row['ts']  . "</td></tr>" ;
-			echo "<tr><td>DCPower:</td><td>" .  $row['dcpower']  . "</td></tr>" ;
+			echo "<tr><td>Power:</td><td>" .  $row['dcpower']  . "</td></tr>" ;
 			echo "<tr><td>DCCurrent:</td><td>" .  $row['dccurrent']  . "</td></tr>" ;
+			echo "<tr><td>ACCurrent:</td><td>" .  $accurrent  . "</td></tr>" ;
 			echo "<tr><td>ACFreq:</td><td>" .  $row['acfreq']  . "</td></tr>" ;
 			echo "<tr><td>DCVolt:</td><td>" .  number_format($dcvolt,2)  . "</td></tr>" ;
 			echo "<tr><td>ACVolt:</td><td>" .  $row['acvolt']  . "</td></tr>" ;
@@ -105,7 +108,7 @@ $output= mysqli_query($conn,"SELECT inverter_serial FROM inverters");
 		}
 	}
 echo "</tr></table>";
-echo  "Totaal aantal inverters: " . $row_cnt . " | Total Power: " . $sumPower . " Watt / " . " | Total VDC: " .  number_format($sumVDC,2)  . " | Total Amps: "  . $sumAmps . " | Total Kwh: " . $sumKwh ;
+echo  "Totaal aantal inverters: " . $row_cnt . " | Power: " . $sumPower . " Watt / " . " | Total VDC: " .  number_format($sumVDC,2)  . " | Total Amps: "  . $sumAmps . " | Total Kwh: " . $sumKwh ;
 echo "<br><br>PVOutput Enecsys Team page: <a href='http://www.pvoutput.org/ladder.jsp?tid=1018' target='_blank'>Enecsys by Tweakers</a>";
 mysqli_close($conn);
 ?>
