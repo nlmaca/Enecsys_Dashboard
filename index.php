@@ -88,7 +88,7 @@ $output= mysqli_query($conn,"SELECT inverter_serial FROM inverters");
 			echo "<tr><td>Update:</td><td>" .  $row['ts']  . "</td></tr>" ;
 			echo "<tr><td>Power:</td><td>" .  $row['dcpower']  . "</td></tr>" ;
 			echo "<tr><td>DCCurrent:</td><td>" .  $row['dccurrent']  . "</td></tr>" ;
-			echo "<tr><td>ACCurrent:</td><td>" .  $accurrent  . "</td></tr>" ;
+			echo "<tr><td>ACCurrent:</td><td>" .  number_format($accurrent,2)  . "</td></tr>" ;
 			echo "<tr><td>ACFreq:</td><td>" .  $row['acfreq']  . "</td></tr>" ;
 			echo "<tr><td>DCVolt:</td><td>" .  number_format($dcvolt,2)  . "</td></tr>" ;
 			echo "<tr><td>ACVolt:</td><td>" .  $row['acvolt']  . "</td></tr>" ;
