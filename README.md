@@ -8,6 +8,9 @@ Forum Topic on Tweakers: http://gathering.tweakers.net/forum/list_messages/16276
 Page 1 has a tutorial on how to install the complete setup on a raspberry pi. 
 a linux server can handle the same thing.
 
+Demo: http://vanmarion.nl/projects/enecsys/dashboard/
+every update will also be available on this link. mysql data is not live though.
+
 #Setup:
 Create Table:
 ```
