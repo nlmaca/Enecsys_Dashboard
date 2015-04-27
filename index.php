@@ -51,8 +51,11 @@ $output= mysqli_query($conn,"SELECT inverter_serial FROM inverters");
 		// eerst alle serienummers ophalen van de inverters
 		$inverter = $row['inverter_serial']; 
 		
-		$input = mysqli_query($conn,"SELECT * FROM enecsys WHERE id = $inverter ORDER BY ts DESC LIMIT 1");
-		while ($row = mysqli_fetch_array($input)) {
+		//added join query to also get the panels from the inverters.
+		$input = mysqli_query($conn,"SELECT EN.ts, EN.id, EN.wh, EN.dcpower, EN.dccurrent, EN.efficiency, EN.acfreq, EN.acvolt, EN.temp, EN.state, INV.panel_1, INV.panel_2
+			FROM enecsys AS EN LEFT JOIN inverters AS INV ON EN.id = INV.inverter_serial WHERE INV.inverter_serial = $inverter ORDER BY EN.ts DESC LIMIT 0 , 1");
+		
+			while ($row = mysqli_fetch_array($input)) {
 		//echo "id: " . $row['id'] . " ts: " . $row['ts'] ;
 						
 			$col++;
@@ -96,6 +99,8 @@ $output= mysqli_query($conn,"SELECT inverter_serial FROM inverters");
 			echo "<tr><td>Efficiency:</td><td>" .  $row['efficiency']  . "</td></tr>" ;
 			echo "<tr><td>State:</td><td>" .  $row['state']  . "</td></tr>" ;
 			echo "<tr><td>Kwh:</td><td>" .  $row['wh'] / 1000 . "</td></tr>" ;
+			echo "<tr><td>Panel 1:</td><td>" .  $row['panel_1'] . "</td></tr>" ;
+			echo "<tr><td>Panel 2:</td><td>" .  $row['panel_2'] . "</td></tr>" ;
 			echo "</table>";
 			$col ;
 			echo "</td><td width='10px'</td>";
