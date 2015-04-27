@@ -135,7 +135,7 @@ if ($output->num_rows > 0) {
 				echo "<tr><td>Panel 1:</td><td>" .  $panel1 . "</td></tr>" ;
 				echo "<tr><td>Panel 2:</td><td>" .  $panel2 . "</td></tr>" ;
 				
-				
+				// get date now to pull results from today
 				$dtime = new DateTime($result->my_datetime);
 				$new_date = $dtime->format('Y-m-d');
 				
@@ -169,7 +169,7 @@ if ($output->num_rows > 0) {
 	}
 }
 else {
-	"Inverter table is empty";
+	echo "Inverter table is empty";
 }
 		
 			
