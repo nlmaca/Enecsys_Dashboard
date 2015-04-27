@@ -105,7 +105,7 @@ if ($output->num_rows > 0) {
 				if ($CurInvPower->num_rows > 0 ) {
 					while ($row = mysqli_fetch_array($CurInvPower)) {
 						if ($row['nu'] == '') {
-							echo "<tr><td>Nu:</td><td>Geen data</td></tr>" ;
+							echo "<tr><td>Nu:</td><td>No data</td></tr>" ;
 						}
 						else {
 							echo "<tr><td>Nu(Watt):</td><td>" .  $row['nu']  . "</td></tr>" ;
