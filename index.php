@@ -24,6 +24,25 @@
 		<title>Solar Panel Dashboard</title>
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 		<link rel="icon" href="favicon.ico" type="image/x-icon">
+		<style>
+body {
+    background-color: #fff;
+	font-size: 12px;
+	font-family: Arial, Verdana;
+}
+
+td {
+	font-size: 12px;
+	font-family: arial, verdana, sans-serif;
+	color: #000;
+	}
+
+h1 {
+    color: maroon;
+    margin-left: 40px;
+} 
+</style>
+		
 	</head>
 <body>
 <?
@@ -82,10 +101,11 @@ if ($output->num_rows > 0) {
 				$sumk_value = $row['wh'] / 1000;
 				$sumKwh += $sumk_value;  // echo $sumKwh; 
 				
+							
 				//output for each inverter
 				echo"<td bgcolor='#cccccc'><table>";
 				echo "<tr><td>Inverter:</td><td>" .  $row['id']  . "</td></tr>" ;
-				echo "<tr><td>Update:</td><td>" .  $row['ts']  . "</td></tr>" ;
+				echo "<tr><td>Update:</td><td>" .  date('d-m-Y H:i:s', strtotime($row['ts']))  . "</td></tr>" ;
 				echo "<tr><td>Power(Wh):</td><td>" .  $row['dcpower']  . "</td></tr>" ;
 				echo "<tr><td>DCCurrent(Amps):</td><td>" .  $row['dccurrent']  . "</td></tr>" ;
 				echo "<tr><td>ACCurrent(Amps):</td><td>" .  number_format($accurrent,2)  . "</td></tr>" ;
@@ -100,12 +120,13 @@ if ($output->num_rows > 0) {
 				
 				$dtime = new DateTime($result->my_datetime);
 				$new_date = $dtime->format('Y-m-d');
+				
 				$CurInvPower = mysqli_query($conn,"select id, max(wh) - min(wh) as nu from enecsys where ts like '%$new_date%' and id = $inverter");
 				//$CurInvPower = mysqli_query($conn,"select id, max(wh) - min(wh) as nu from enecsys where ts like '%2015-04-25%' and id = $inverter");				
 				if ($CurInvPower->num_rows > 0 ) {
 					while ($row = mysqli_fetch_array($CurInvPower)) {
 						if ($row['nu'] == '') {
-							echo "<tr><td>Nu:</td><td>No data</td></tr>" ;
+							echo "<tr><td>Nu(Watt):</td><td>No data</td></tr>" ;
 						}
 						else {
 							echo "<tr><td>Nu(Watt):</td><td>" .  $row['nu']  . "</td></tr>" ;
