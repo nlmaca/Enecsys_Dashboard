@@ -64,9 +64,11 @@ $sumKwh = 0;
 define('COLS', $Nr_Colums); // max number of colums can be set in conf.php $Nr_Colums = 5;
 $col = 0; // number of the last column filled
 		
-$output= mysqli_query($conn,"SELECT inverter_serial FROM inverters");
+$output= mysqli_query($conn,"SELECT inverter_serial, panel_1, panel_2 FROM inverters");
 if ($output->num_rows > 0) {
 	while($row=mysqli_fetch_array($output)){
+		$panel1 = $row['panel_1'];
+		$panel2 = $row['panel_2'];
 	
 	// eerst alle serienummers ophalen van de inverters
 		$inverter = $row['inverter_serial']; 
@@ -116,6 +118,8 @@ if ($output->num_rows > 0) {
 				echo "<tr><td>Efficiency:</td><td>" .  $row['efficiency']  . "</td></tr>" ;
 				echo "<tr><td>State:</td><td>" .  $row['state']  . "</td></tr>" ;
 				echo "<tr><td>Kwh:</td><td>" .  $row['wh'] / 1000 . "</td></tr>" ;
+				echo "<tr><td>Panel 1:</td><td>" .  $panel1 . "</td></tr>" ;
+				echo "<tr><td>Panel 2:</td><td>" .  $panel2 . "</td></tr>" ;
 				
 				
 				$dtime = new DateTime($result->my_datetime);
