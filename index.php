@@ -116,8 +116,19 @@ if ($output->num_rows > 0) {
 				echo "<tr><td>ACVolt:</td><td>" .  $row['acvolt']  . "</td></tr>" ;
 				echo "<tr><td>Temp:</td><td>" .  $row['temp']  . "  &#8451;</td></tr>" ;
 				echo "<tr><td>Efficiency:</td><td>" .  $row['efficiency']  . "</td></tr>" ;
-				
-				echo "<tr><td>State:</td><td>" .  $row['state']  . "</td></tr>" ;
+				if ($row['state'] == 0) {
+					echo "<tr><td>State:</td><td>0 - normal to grid</td></tr>" ;
+				}
+				else if ($row['state'] == 1) {
+					echo "<tr><td>State:</td><td>1 - not enough light</td></tr>" ;
+				}
+				else if ($row['state'] == 3) {
+					echo "<tr><td>State:</td><td>3 - other low light condition</td></tr>" ;
+				}
+				else {
+					echo "<tr><td>State:</td><td>" .  $row['state']  . "</td></tr>" ;
+				}
+				//echo "<tr><td>State:</td><td>" .  $row['state']  . "</td></tr>" ;
 				echo "<tr><td>Kwh:</td><td>" .  $row['wh'] / 1000 . "</td></tr>" ;
 				echo "<tr><td>Panel 1:</td><td>" .  $panel1 . "</td></tr>" ;
 				echo "<tr><td>Panel 2:</td><td>" .  $panel2 . "</td></tr>" ;
