@@ -43,7 +43,14 @@ INSERT INTO `inverters` (`inverter_serial`, `inverter_type`, `duo_single`, `part
 ('xxxx', 'SMI-480-60', 'duo', 'xxxx', '2013-04-13 00:00:00', 0, 0),
 ('xxxx', 'SMI-480-60', 'duo', 'xxxx', '2013-04-13 00:00:00', 0, 0),
 ('xxxx', 'SMI-480-60', 'duo', 'xxxx', '2013-04-13 00:00:00', 0, 0),
-```
+
+Note:
+Panel_1 en panel_2 are cosmetic values. i use them for a mapping page, which is not ready for this release yet. you can see an example on this page: 
+http://vanmarion.nl/projects/enecsys/dashboard/DEV/mapping.php
+
+#All files
+Copy all the files to your apache directory (/var/www for raspberry)
+
 #Config.php
 Needed for general settings
 Fill in your db credentials.
