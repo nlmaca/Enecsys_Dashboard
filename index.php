@@ -45,7 +45,7 @@ h1 {
 		
 	</head>
 <body>
-<?
+<?php
 require_once 'inc/conf.php';
 
 echo "<b>System name:</b> " . $System_Name; // can gedefineerd worden in de conf.php
