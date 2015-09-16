@@ -169,7 +169,6 @@ if ($output->num_rows > 0) {
 else {
 	echo "Inverter table is empty";
 }
-		
 			
 echo "</tr></table>";
 echo  "Totaal aantal inverters: " . $row_cnt . " | Power: " . $sumPower . " Watt / " . " | Total VDC: " .  number_format($sumVDC,2)  . " | Total Amps: "  . $sumAmps . " | Total Kwh: " . $sumKwh ;
