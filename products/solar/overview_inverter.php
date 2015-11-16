@@ -107,7 +107,7 @@ if ($output->num_rows > 0) {
 	echo "<tr><td>" . $LANG_LIVE_END_VALUE ."</td><td>" . $valueEnd . "</td></tr>";
 	echo "<tr><td>" . $LANG_LIVE_CURRENT . "</td><td>" . $valueCurrent . "</td></tr>";
 	echo "<tr><td>" . $LANG_LIVE_PANEL_1 . "</td><td>" . $panel1 . "</td></tr>";
-	echo "<tr><td>" . $LANG_LIVE_PANEL_1 . "</td><td>" . $panel2 . "</td></tr>";
+	echo "<tr><td>" . $LANG_LIVE_PANEL_2 . "</td><td>" . $panel2 . "</td></tr>";
 	echo "</table></div>";
 }
 else {
