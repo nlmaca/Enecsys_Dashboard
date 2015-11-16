@@ -19,7 +19,7 @@
 
 $DOCUMENT_ROOT = '/Enecsys_Dashboard'; // NO trailerslash!!!!
 $TITLE = 'Enecsys Dashboard';
-$language = 'NL'; // use english or dutch (ENG, NL)
+$language = 'ENG'; // use english or dutch (ENG, NL)
 
 date_default_timezone_set('Europe/Amsterdam');
 
