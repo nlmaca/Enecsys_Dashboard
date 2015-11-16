@@ -24,21 +24,21 @@ MENU:users:
 - users can only be deleted when there is more then 1 present. this will prevent that all users will be accidently deleted
 
 MENU:settings:
-	=>Inverters
-	- inverters can be created and edited and deleted. when edited more info will be visable
-	- edit inverter build date is handled by jquery
-	- inverter is not checked yet if it exists or not (next version)
-	=> DB Performance
-	- created scripts for checking current table, update to history table, clean master table 
+: Inverters
+- inverters can be created and edited and deleted. when edited more info will be visable
+- edit inverter build date is handled by jquery
+- inverter is not checked yet if it exists or not (next version)
+: DB Performance
+- created scripts for checking current table, update to history table, clean master table 
 
 MENU:history;
--->  Overview (table results)
+:  Overview (table results)
 - will be used for showing history data
 - startdate == end date = will show information on the hour for that day
 - startdate != end date = will show information by day within that date range
 - more to come
 
---> Charts (chart results) will be done in next version
+- Charts (chart results) will be done in next version
 
 MENU: LIVE:
 - page will refresh every 60 seconds
@@ -54,11 +54,12 @@ Logout:
 - speaks for it self
 
 #cronjobs
-cronjobs (should be running already when you installed the php/mysql/apache setup: 
+- cronjobs (should be running already when you installed the php/mysql/apache setup: 
+```
 @reboot php /home/pi/enecsys_php/e2pv.php >> /home/pi/enecsys_php/e2pv.log
 0 1 * * * sudo cp /dev/null /home/pi/enecsys_php/e2pv.log
-
-#Optional - creating nightly backup of the entire database
+```
+#Optional - mysql backups
 Change the credentials in te script mysql_dump.sh
 ```
 Line 30: DATABASENAME 
@@ -66,7 +67,10 @@ Line 31: DATABASEUSER
 Line 32: DATABASEPASSWORD
 ```
 
-upload the script from /INSTALL/mysqldump/mysql_dump.sh to /home/pi/
+upload the script from 
+```
+/INSTALL/mysqldump/mysql_dump.sh to /home/pi/
+```
 give it executable rights
 ```
 chmod +x /home/pi/mysql_dump.sh 
@@ -90,11 +94,10 @@ sh /home/pi/mysql_dump.sh
 ```
 
 #Setup Dashboard:
-create new and extra tables in phpmyadmin - see INSTALL->create_tables.sql
+create new and extra tables in phpmyadmin
+- see INSTALL->create_tables.sql
 
-Note:
-Panel_1 en panel_2, build_date are cosmetic values. i use them for a mapping page if you want to keep track to which panels the inverters are connected.
-i will use these later in future updates
+- Note: Panel_1 en panel_2, build_date are cosmetic values. i use them for a mapping page if you want to keep track to which panels the inverters are connected. i will use these later in future updates
 
 #All files
 Change the credentials in the file /Enecsys_Dashboard/inc/general_conf.inc.php to your settings
