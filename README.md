@@ -1,12 +1,11 @@
 
-
 # Enecsys_Dashboard - Version 2.1 - BugFixes
--- added jquery datepicker to history selection (wasn't working in IE).
--- added jquery datepicker to inverter page
--- added some text information. to create history views, you need to update the history table first.
--- 
+- added jquery datepicker to history selection (wasn't working in IE).
+- added jquery datepicker to inverter page
+- added some text information. to create history views, you need to update the history table first.
+ 
 update from 2.0 to 2.1? 
--- just upload all the files again (execpt the directory INSTALL and inc)
+- just upload all the files again (except the directory INSTALL and inc)
 
 # Enecsys_Dashboard - Version 2.0 - Intro
 is based on the need for a Solar Dashboard to monitor on a local server. to monitor the enecsys inverters 
