@@ -54,6 +54,7 @@ $LANG_INVERTER_INFO = 'Inverter information';
 $LANG_FROMDATE = 'From Date: ';
 $LANG_TODATE = 'Until Date: ';
 $LANG_SELECT_INVERTER = 'Select Inverter: ';
+$LANG_HISTORY_INFO = 'Make sure you have updated the history table (Settings->DB performance)<br> Date setting: yyyy-mm-dd';
 
 //db performance and subpages /performance/optimize_database.php
 $LANG_DB_GETDATA = 'Retreiving data, be patient';

@@ -1,5 +1,5 @@
 <?php
-// page version: 2.0
+// page version: 2.1
 require("../inc/general_conf.inc.php");
 if(empty($_SESSION['user'])) {
 	header("Location: ". $DOCUMENT_ROOT . "/index.php");

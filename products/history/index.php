@@ -1,5 +1,5 @@
 <?php
-// page version: 2.0
+// page version: 2.1
 require("../../inc/general_conf.inc.php");
 
 if(empty($_SESSION['user'])) {
@@ -9,7 +9,15 @@ if(empty($_SESSION['user'])) {
 
 include ("../../header.php");
 include ('../../language/' . $language . '.inc.php');
+
 ?>
+<script type="text/javascript">
+	$(function() {
+    	$("#startdate").datepicker({ dateFormat: "yy-mm-dd" }).val()
+        $("#enddate").datepicker({ dateFormat: "yy-mm-dd" }).val()
+    });
+</script>  
+
 <script>
   function ajax_select_request() {
     $('#results').html('<p> <i class="fa fa-spinner fa-spin fa-2x"></i><?php echo $LANG_DB_GETDATA; ?></p>');
@@ -30,6 +38,7 @@ $inv = mysqli_query($connect,"SELECT inverter_serial from inverters");
 
 <div class='panel panel-default'>
 	<div class='panel-heading'><?php echo $LANG_APPLICATION_INFO; ?><br>
+	<?php echo $LANG_HISTORY_INFO;?>
 		<form method="POST" action="select_history.php" id="select-history">
 			<?php echo $LANG_SELECT_INVERTER; ?> 
 			<select name="inverter"> 
@@ -42,8 +51,8 @@ $inv = mysqli_query($connect,"SELECT inverter_serial from inverters");
 					}               
 				?>
 			</select>
-			<?php echo $LANG_FROMDATE; ?><input type="date" id="fromdate" name="fromdate"> | 
-			<?php echo $LANG_TODATE; ?><input type='date' id='todate' name='todate'>
+			<?php echo $LANG_FROMDATE; ?><input type="text" id="startdate" name="fromdate"> | 
+			<?php echo $LANG_TODATE; ?><input type="text" id="enddate" name='todate'>
 			<?php echo $LANG_SELECT_OPTION; ?>
 			<select name='selectOption'>
 				<option value='totalWH'><?php echo $LANG_TOTAL_WH; ?></option>

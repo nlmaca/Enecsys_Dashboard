@@ -1,5 +1,5 @@
 <?php
-// page version: 2.0
+// page version: 2.1
 require("../inc/general_conf.inc.php");
 if(empty($_SESSION['user'])) {
 	header("Location: ". $DOCUMENT_ROOT . "/index.php");
@@ -8,6 +8,14 @@ if(empty($_SESSION['user'])) {
 
 include ("../header.php");
 include ('../language/' . $language . '.inc.php'); 
+
+?>
+<script type="text/javascript">
+	$(function() {
+    	$("#datepicker").datepicker({ dateFormat: "yy-mm-dd" }).val()
+    });
+</script>
+<?php
 
 echo "<div class='panel panel-default'>";
 echo "<div class='panel-heading'>" . $LANG_APPLICATION_INFO . "</div>";
@@ -18,7 +26,7 @@ echo "<tr><td>" . $LANG_INVERTER . "</td><td><input type='text' name='inverterse
 echo "<tr><td>" . $LANG_INVERTER_TYPE . "</td><td><input type='text' name='invertertype' value='SMI-480-60'></td></tr>";
 echo "<tr><td>" . $LANG_INVERTER_DUO . "</td><td><input type='text' name='duosingle' value='Duo'></td></tr>";
 echo "<tr><td>" . $LANG_INVERTER_PARTNR . "</td><td><input type='text' name='partsnr' value='1-B1-CA-AA-1'></td></tr>";
-echo "<tr><td>" . $LANG_BUILD_DATE . "</td><td><input type='text' name='builddate' value='yyyy-mm-dd hr:min:sec'></td></tr>";
+echo "<tr><td>" . $LANG_BUILD_DATE . "</td><td><input type='text' id='datepicker' name='builddate' value='yyyy-mm-dd hr:min:sec'></td></tr>";
 echo "<tr><td>" . $LANG_LIVE_PANEL_1 . "</td><td><input type='text' name='panel1' value=''></td></tr>";
 echo "<tr><td>" . $LANG_LIVE_PANEL_2 . "</td><td><input type='text' name='panel2' value=''></td></tr>";
 echo "</table></div>";

@@ -54,6 +54,7 @@ $LANG_INVERTER_INFO = 'Omvormer informatie: ';
 $LANG_FROMDATE = 'vanaf datum: ';
 $LANG_TODATE = 'Tot datum: ';
 $LANG_SELECT_INVERTER = 'Selecteer Omvormer: ';
+$LANG_HISTORY_INFO = 'Zorg ervoor dat je de geschiedenis tabel hebt bijgewerkt (Instellingen->DB optimalisatie)<br> Datum instelling: jjjj-mm-dd';
 
 //db performance and subpages /performance/optimize_database.php
 $LANG_DB_GETDATA = 'Data wordt opgehaald, even geduld a.u.b';

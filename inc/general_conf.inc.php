@@ -6,7 +6,7 @@
     $dbUserPasswd = "DATABASEPASSWORD"; 
     $dbHost = "localhost"; 
     $dbName = "DATABASENAME"; 
-    
+
     $options = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'); 
     try { $db = new PDO("mysql:host={$dbHost};dbname={$dbName};charset=utf8", $dbUserName, $dbUserPasswd, $options); } 
     catch(PDOException $ex){ die("Failed to connect to the database: " . $ex->getMessage());} 
@@ -17,7 +17,7 @@
     
 //$DOCUMENT_ROOT = '/Enecsys_Dashboard'; // in this case will be in /var/www/Enecsys_Dashboard  | NO trailerslash!!!!
 
-$DOCUMENT_ROOT = '/Enecsys_Dashboard'; // NO trailerslash!!!!
+$DOCUMENT_ROOT = '/projects/Enecsys_Dashboard'; // NO trailerslash!!!!
 $TITLE = 'Enecsys Dashboard';
 $language = 'ENG'; // use english or dutch (ENG, NL)
 

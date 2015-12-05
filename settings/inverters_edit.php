@@ -1,5 +1,5 @@
 <?php
-// page version: 2.0
+// page version: 2.1
 require("../inc/general_conf.inc.php");
 if(empty($_SESSION['user'])) {
 	header("Location: ". $DOCUMENT_ROOT . "/index.php");
@@ -9,7 +9,15 @@ include ("../header.php");
 include ('../language/' . $language . '.inc.php'); 
 
 $id = htmlspecialchars($_POST['id']);
+?>
 
+<script type="text/javascript">
+       $(function() {
+               $("#datepicker").datepicker({ dateFormat: "yy-mm-dd" }).val()
+       });
+   </script>
+
+<?php
 // Create connection
 $connect = mysqli_connect($dbHost, $dbUserName, $dbUserPasswd, $dbName);
 // Check connection
@@ -30,7 +38,7 @@ while($row = mysqli_fetch_array($sql)){
 	echo "<tr><td>" . $LANG_INVERTER_TYPE . "</td><td><input type='text' name='invertertype' value='". $row['inverter_type']. "'></td></tr>";
 	echo "<tr><td>" . $LANG_INVERTER_DUO . "</td><td><input type='text' name='duosingle' value='". $row['duo_single']."'></td></tr>";
 	echo "<tr><td>" . $LANG_INVERTER_PARTNR . "</td><td><input type='text' name='partsnr' value='". $row['parts_nr']."'></td></tr>";
-	echo "<tr><td>" . $LANG_BUILD_DATE . "</td><td><input type='text' name='builddate' value='". $row['build_date']."'></td></tr>";
+	echo "<tr><td>" . $LANG_BUILD_DATE . "</td><td><input type='text' id='datepicker' name='builddate' value='". $row['build_date']."'></td></tr>";
 	echo "<tr><td>" . $LANG_LIVE_PANEL_1 . "</td><td><input type='text' name='panel1' value='". $row['panel_1']."'></td></tr>";
 	echo "<tr><td>" . $LANG_LIVE_PANEL_2 . "</td><td><input type='text' name='panel2' value='". $row['panel_2']."'></td></tr>";
 	echo "</table></div>";
