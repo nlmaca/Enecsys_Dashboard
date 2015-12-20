@@ -17,7 +17,7 @@
     
 //$DOCUMENT_ROOT = '/Enecsys_Dashboard'; // in this case will be in /var/www/Enecsys_Dashboard  | NO trailerslash!!!!
 
-$DOCUMENT_ROOT = '/projects/Enecsys_Dashboard'; // NO trailerslash!!!!
+$DOCUMENT_ROOT = '/Enecsys_Dashboard'; // NO trailerslash!!!!
 $TITLE = 'Enecsys Dashboard';
 $language = 'ENG'; // use english or dutch (ENG, NL)
 
