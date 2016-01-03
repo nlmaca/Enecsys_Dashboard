@@ -152,7 +152,7 @@ if ($output->num_rows > 0) {
 			            	<div class='stats-progress progress'>
                             <div class='progress-bar' style='width: 100%;'></div>
                        		</div>
-                        	<div class='stats-desc'>" . $LANG_LIVE_ERROR_NODATA_1 . "</div>-->
+                        	<div class='stats-desc'>" . $LANG_LIVE_ERROR_NODATA_1 . "</div>
 			        		</div>
 			    			</div>";
 		}

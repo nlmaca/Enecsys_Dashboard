@@ -5,7 +5,7 @@
             <p class="text-muted" align="center"><br>&copy; <?php echo date("Y"); ?> Developed by J. van Marion /
             <a href="https://github.com/nlmaca" target="_blank"><i class="fa fa-github-alt fa-lg">&nbsp;&nbsp;</i></a>
                    <a href="https://nl.linkedin.com/in/jeroenvanmarion" target="_blank"><i class="fa fa-linkedin-square fa-lg">&nbsp;&nbsp;</i></a>
-            <br> Version 2.1</p>
+            <br>Version 2.2</p>
       </div>
 </div>
 

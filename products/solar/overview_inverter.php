@@ -1,5 +1,5 @@
 <?php
-// page version: 2.0
+// page version: 2.2
 require("../../inc/general_conf.inc.php");
 if(empty($_SESSION['user'])) {
 	header("Location: ../../index.php");
@@ -24,7 +24,7 @@ $sumVDC = 0;
 $sumAmps = 0; 
 $sumKwh = 0;
 
-$output= mysqli_query($connect,"select i.panel_1, i.panel_2, e.ts, e.id, e.wh, e.dcpower, e.dccurrent, e.efficiency, e.acfreq, e.acvolt, e.temp, e.state 
+$output= mysqli_query($connect,"select i.inverter_type, i.duo_single, i.panel_1, i.panel_2, e.ts, e.id, e.wh, e.dcpower, e.dccurrent, e.efficiency, e.acfreq, e.acvolt, e.temp, e.state 
 	from inverters as i
 	left join enecsys as e
 	on i.inverter_serial = e.id
@@ -34,6 +34,8 @@ $output= mysqli_query($connect,"select i.panel_1, i.panel_2, e.ts, e.id, e.wh, e
 if ($output->num_rows > 0) {
 	while($row=mysqli_fetch_array($output)){
 		//$inverter = $row['inverter_serial'];
+        $inverter_type = $row['$inverter_type'];
+        $duo_single = $row['$duo_single'];
 		$panel1 = $row['panel_1'];
 		$panel2 = $row['panel_2']; 
 		$lastUpdate = date('d M Y H:i:s', strtotime($row['ts']));
@@ -89,7 +91,7 @@ if ($output->num_rows > 0) {
 		
 	}
 	echo "<div class='panel panel-default'>";
-	echo "<div class='panel-heading'>" . $LANG_INVERTER_INFO . $inv . "</div>";
+	echo "<div class='panel-heading'>" . $LANG_INVERTER_INFO . $inv . "Type: " . $inverter_type . " / " . $duo_single . "</div>";
 	echo "<table class='table table-bordered table-hover'>";
 	echo "<tr><td>" . $LANG_INVERTER . "</td><td>" . $inv . "</td></tr>";
 	echo "<tr><td>" . $LANG_LIVE_LAST_UPDATE . "</td><td>" . $lastUpdate . "</td></tr>";
@@ -103,9 +105,9 @@ if ($output->num_rows > 0) {
 	echo "<tr><td>" . $LANG_LIVE_EFF . "</td><td>" . $efficiency . "</td></tr>";
 	echo "<tr><td>" . $LANG_LIVE_SOLAR_STATE . "</td><td>" . $status . "</td></tr>";
 	echo "<tr><td>" . $LANG_LIVE_KWH . "</td><td>" . $sumk_value . "</td></tr>";
-	echo "<tr><td>" . $LANG_LIVE_START_VALUE . "</td><td>" . $valueStart . "</td></tr>";
-	echo "<tr><td>" . $LANG_LIVE_END_VALUE ."</td><td>" . $valueEnd . "</td></tr>";
-	echo "<tr><td>" . $LANG_LIVE_CURRENT . "</td><td>" . $valueCurrent . "</td></tr>";
+	echo "<tr><td>" . $LANG_LIVE_START_VALUE . "</td><td>" . number_format($valueStart,3) . "</td></tr>";
+	echo "<tr><td>" . $LANG_LIVE_END_VALUE ."</td><td>" . number_format($valueEnd,3) . "</td></tr>";
+	echo "<tr><td>" . $LANG_LIVE_SOFAR . "</td><td>" . $valueCurrent . "</td></tr>";
 	echo "<tr><td>" . $LANG_LIVE_PANEL_1 . "</td><td>" . $panel1 . "</td></tr>";
 	echo "<tr><td>" . $LANG_LIVE_PANEL_2 . "</td><td>" . $panel2 . "</td></tr>";
 	echo "</table></div>";

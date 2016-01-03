@@ -1,5 +1,5 @@
 <?php
-// page version: 2.1
+// page version: 2.2
 include 'language/' . $language . '.inc.php';
 ?>
 <!doctype html>
@@ -14,7 +14,7 @@ include 'language/' . $language . '.inc.php';
      <link href="<?php echo $DOCUMENT_ROOT; ?>/assets/css/sticky-footer.css" rel="stylesheet">
     <link href="<?php echo $DOCUMENT_ROOT; ?>/assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="<?php echo $DOCUMENT_ROOT; ?>/assets/css/style.min.css" rel="stylesheet">
-    <link href="<?php echo $DOCUMENT_ROOT; ?>/assets/font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?php echo $DOCUMENT_ROOT; ?>/assets/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="icon" href="<?php echo $DOCUMENT_ROOT; ?>/img/favicon.ico?v=2" type="image/x-icon" />
     <script src="<?php echo $DOCUMENT_ROOT; ?>/assets/jquery-2.1.4.min.js"></script>
     <link rel="stylesheet" href="<?php echo $DOCUMENT_ROOT; ?>/assets/jquery/jquery-ui-1.11.4/jquery-ui.css">
@@ -33,13 +33,16 @@ include 'language/' . $language . '.inc.php';
                     <span class="sr-only"><?php echo $LANG_HEADER_SHOW_MENU; ?></span>
                     <i class="fa fa-bars fa-2x"></i>
                 </button>
-                <a class="navbar-brand" href="<?php echo $DOCUMENT_ROOT; ?>/products/solar/overview.php">
+                <a class="navbar-brand" href="<?php echo $DOCUMENT_ROOT; ?>/index2.php">
                     <img alt="Brand" src="<?php echo $DOCUMENT_ROOT; ?>/img/sun-32.png" alt="Enecsys Dashboard" title="Enecsys Dashboard">
                 </a>
             </div>
         
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- pv output button -->       
+                    <li><a href="<?php echo $DOCUMENT_ROOT; ?>/products/pvoutput/overview.php"><i class="fa fa-building-o fa-fw"></i> PV OUTPUT</a></li>
                 <ul class="nav navbar-nav navbar-right">
                     <!-- live button -->       
                     <li><a href="<?php echo $DOCUMENT_ROOT; ?>/products/solar/overview.php"><i class="fa fa-bookmark-o fa-fw"></i> LIVE</a></li>

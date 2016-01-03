@@ -1,3 +1,73 @@
+# Enecsys_Dashboard - Version 2.2
+- minor fixes and some enhancements
+- created web installer for new dashboard installations (database has to be created though, and cronjobs have to be set)<br>
+- created this page with some default information<br>
+- changed the readme with the cronjob. users got confused.
+- removed the mysql dump script. its not really a part of the dashboard. i will release loose linux/enecsys scripts in another github repository
+- created pvoutput page (see top navigation), where the team page will be displayed (around 56 members already :D) 
+- updated version font-awesome to 4.5.0
+ 
+update from 2.0 to 2.2? 
+- just upload (overwrite) all the files again except the directories INSTALL/ and inc/
+- no changes are made in the database
+- new install with existing database? you wont loose your master table.
+
+#Requirements
+- Apache 2.x
+- PHP5.3+
+- MySQL (+phpmyadmin)
+- Script from Omoerbeek installed with output to database see: https://github.com/omoerbeek/e2pv
+
+#cronjobs
+- cronjobs (should be running already when you installed the php/mysql/apache setup: 
+- where enecsys is the directory where your e2pv script is located.
+```
+@reboot php /home/pi/enecsys/e2pv.php >> /home/pi/enecsys/e2pv.log
+0 1 * * * sudo cp /dev/null /home/pi/enecsys/e2pv.log
+```
+#Setup Dashboard:
+Create the database and user for the dashboard within phpmyadmin 
+from here you're done. i created a webinstaller for the dashboard.
+
+I assume you are using this on a raspberry
+``` 
+cd /home/pi
+mkdir dash_temp
+cd /home/pi/dash_temp
+wget https://github.com/nlmaca/Enecsys_Dashboard/archive/master.zip
+
+unzip master.zip
+```
+
+Create a  web directory on your /var/www
+(where enecsys will be the directory for the dashboard files (name it to whatever you like))
+```
+sudo mkdir /var/www/enecsys 
+```
+Time to copy all the files to the new webdirectory and make the config file writable
+```
+cd /home/pi/dash_temp/Enecsys_Dashboard-master
+sudo cp * -R /var/www/enecsys
+sudo chmod 777 /var/www/enecsys/inc/general_conf.inc.php
+``` 
+Ok. time to run the webinstaller. Open your browser and go to the ipaddress of your raspberry and followed by /enecsys/INSTALL/install.php<br>
+Just walk through the installer
+
+you need to have:
+- the database credentials from your just created or already present database
+- your webdirectory where you copied the files to
+
+
+After this you should be able to login into the dashboard. Your ipaddress followed by your webdirectory (Exmample: http://10.0.0.50/enecsys
+http://IP_RASPBERRY/Enecsys_Dashboard
+
+default login: admin
+default email: admin@dashboard.lan 
+default password: dashboard
+
+#Raspberry pi.
+if running on rpi (1 or 2) its best to optimize mysql
+http://www.ducky-pond.com/posts/2014/Feb/how-to-install-and-optimize-mysql-on-raspberry-pi/
 
 # Enecsys_Dashboard - Version 2.1 - BugFixes
 - added jquery datepicker to history selection (wasn't working in IE).
@@ -18,128 +88,6 @@ some adjustments have to be made.
 
 Demo: not yet available (check screenshots in INSTALL directory)
 
-#Requirements
-- Apache 2.x
-- PHP5.3+
-- MySQL (+phpmyadmin)
-- Script from Omoerbeek installed with output to database ( https://github.com/omoerbeek/e2pv)
-
-#included
-
-MENU:users:
-- show all users that are present. password cant be edited in this version yet (create new user and delete the old one).
-- users can only be deleted when there is more then 1 present. this will prevent that all users will be accidently deleted
-
-MENU:settings:
-: Inverters
-- inverters can be created and edited and deleted. when edited more info will be visable
-- edit inverter build date is handled by jquery
-- inverter is not checked yet if it exists or not (next version)
-: DB Performance
-- created scripts for checking current table, update to history table, clean master table 
-
-MENU:history;
-:  Overview (table results)
-- will be used for showing history data
-- startdate == end date = will show information on the hour for that day
-- startdate != end date = will show information by day within that date range
-- more to come
-
-- Charts (chart results) will be done in next version
-
-MENU: LIVE:
-- page will refresh every 60 seconds
-- will give a live overview of the inverters that are set in the settings->inverters page
-- by clicking on the [?] you will see detailed information
-- it will show different icons for the inverters based on the inverter status
-- 0 = normal to grid - light. should give this state when there are no problems. will give smiley icon
-- 1 = not enough light (mostly when dark) -> will show moon icon
-- 3 = other reason for no light. will give a cloud icon in the background
-- else = should not give this state, but had to build in something ;) will give sun icon 
-
-Logout:
-- speaks for it self
-
-#cronjobs
-- cronjobs (should be running already when you installed the php/mysql/apache setup: 
-```
-@reboot php /home/pi/enecsys_php/e2pv.php >> /home/pi/enecsys_php/e2pv.log
-0 1 * * * sudo cp /dev/null /home/pi/enecsys_php/e2pv.log
-```
-#Optional - mysql backups
-Change the credentials in te script mysql_dump.sh
-```
-Line 30: DATABASENAME 
-Line 31: DATABASEUSER
-Line 32: DATABASEPASSWORD
-```
-
-upload the script from 
-```
-/INSTALL/mysqldump/mysql_dump.sh to /home/pi/
-```
-give it executable rights
-```
-chmod +x /home/pi/mysql_dump.sh 
-```
-create a directory /home/pi/mysql_backup and create a log file
-```
-mkdir /home/pi/mysql_backup
-touch /home/pi/mysql_backup/backup.log
-```
-
-Add cronjob: (as pi user: crontab -e)
-This one is used for creating a daily (at midnight) backup of the entire database. You can download it afterwards through sftp (filezilla) in the /home/pi/mysql_backup directory
-```
-0 0 * * * sh /home/pi/mysqldump/mysql_dump.sh
-```
-
-You can also run this script manually from the commandline:
-as pi user: 
-```
-sh /home/pi/mysql_dump.sh
-```
-
-#Setup Dashboard:
-create new and extra tables in phpmyadmin
-- see INSTALL->create_tables.sql
-
-- Note: Panel_1 en panel_2, build_date are cosmetic values. i use them for a mapping page if you want to keep track to which panels the inverters are connected. i will use these later in future updates
-
-#All files
-Change the credentials in the file /Enecsys_Dashboard/inc/general_conf.inc.php to your settings
-
-```
-$dbHost = "localhost";
-$dbUserName = "db_username";
-$dbUserPasswd = "db_password";
-$dbName = "db_name";
-
-$DOCUMENT_ROOT = '/Enecsys_Dashboard'; // NO trailerslash!!!!
-
-$TITLE = 'Enecsys Dashboard'; // use whatever you want
-$language = 'ENG' // use ENG or NL 
-
-```
-
-Copy the complete directory (Enecsys_Dasbhoard) to your raspberry at /var/www/
-with rpi might a bit tricky. sftp(Filezilla) to /home/pi and from there use sudo to copy all files to /var/www
-
-```
-sudo cp -R /home/pi/Enecsys_Dashboard /var/www
-```
-so it will look like this: /var/www/Enecys_Dashboard
-
-After this you should be able to login into the dashboard.
-http://IP_RASPBERRY/Enecsys_Dashboard
-
-default login: admin
-default email: admin@dashboard.lan 
-default password: dashboard
-
-#Raspberry pi.
-if running on rpi (1 or 2) its best to optimize mysql
-http://www.ducky-pond.com/posts/2014/Feb/how-to-install-and-optimize-mysql-on-raspberry-pi/
 
 
 #Note:

@@ -4,10 +4,8 @@ language file english
 top page: <?php include ('../../language/' . $language . '.inc.php'); ?>
 <?php echo $LANG_INVERTER; ?>
 */
-
+// page version: 2.2
 //Intro
-$LANG_INTRO = '';
-
 $LANG_UPDATED = 'No of rows updated: '; 
 
 //index login page /index.php
@@ -44,7 +42,7 @@ $LANG_LIVE_SOLAR_STATE = 'Solar State';
 $LANG_LIVE_KWH = 'Kwh';
 $LANG_LIVE_START_VALUE = 'Start value';
 $LANG_LIVE_END_VALUE = 'End value';
-$LANG_LIVE_CURRENT = 'Current(Watt)';
+//$LANG_LIVE_CURRENT = 'Current(Watt)'; - changed in 2.2
 $LANG_LIVE_PANEL_1 = 'Panel 1';
 $LANG_LIVE_PANEL_2 = 'Panel 2';
 $LANG_LIVE_SOFAR = 'So far Today';

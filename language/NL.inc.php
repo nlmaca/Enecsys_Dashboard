@@ -4,10 +4,8 @@ language file dutch
 top page: <?php include ('../../language/' . $language . '.inc.php'); ?>
 <?php echo $LANG_INVERTER; ?>
 */
-
+// page version: 2.2
 //Intro
-$LANG_INTRO = '';
-
 $LANG_UPDATED = 'Aant rijen bijgewerkt: '; 
 
 //index login page /index.php
@@ -44,7 +42,7 @@ $LANG_LIVE_SOLAR_STATE = 'Paneel status';
 $LANG_LIVE_KWH = 'Kwh';
 $LANG_LIVE_START_VALUE = 'Start waarde';
 $LANG_LIVE_END_VALUE = 'Eind waarde';
-$LANG_LIVE_CURRENT = 'Current(Watt)';
+//$LANG_LIVE_CURRENT = 'Current(Watt)'; - changed in 2.2
 $LANG_LIVE_PANEL_1 = 'Paneel 1';
 $LANG_LIVE_PANEL_2 = 'Paneel 2';
 $LANG_LIVE_SOFAR = 'Tot nu toe vandaag: ';
@@ -73,7 +71,7 @@ $LANG_DB_STEP2_SUB1 = '[2] Upgrade geschiedenis';
 $LANG_DB_STEP2_SUB2 = 'Klik om de geschiedenis bij te werken';
 
 //db step 3
-$LANG_DB_STEP3_SUB1 = '[3] Seleer oude data';
+$LANG_DB_STEP3_SUB1 = '[3] Selecteer oude data';
 $LANG_DB_STEP3_SUB2 = 'selecteer data ouder dan 2 dagen';
 $LANG_DB_STEP3_RESULT = 'dat verwijderd kan worden';
 $LANG_DB_STEP3_RESULT2 = 'tabel is up to date. Klaar';
