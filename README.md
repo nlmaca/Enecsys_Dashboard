@@ -58,7 +58,7 @@ you need to have:
 - your webdirectory where you copied the files to
 
 
-After this you should be able to login into the dashboard. Your ipaddress followed by your webdirectory (Exmample: http://10.0.0.50/enecsys
+After this you should be able to login into the dashboard. Your ipaddress followed by your webdirectory (Example: http://10.0.0.50/enecsys<br>
 http://IP_RASPBERRY/Enecsys_Dashboard
 
 default login: admin
