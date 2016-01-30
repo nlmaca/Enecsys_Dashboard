@@ -1,3 +1,13 @@
+#Intro
+is based on the need for a Solar Dashboard to monitor on a local server. to monitor the enecsys inverters 
+It needs to run on the same host where the the script of Omoerbeek is running.
+
+The installer scripts are made to run a RPI B+ or RPI 2 
+Some people made it work on their nas(synology), but i dont give support on that. 
+
+Forum Topic on Tweakers: http://gathering.tweakers.net/forum/list_messages/1627615/0
+Demo: not yet available (check screenshots in INSTALL directory)
+
 # Enecsys_Dashboard - Version 2.3
 - fixed some typo's in the readme
 - changed description in detailed overview (Power(Wh) to Power (W))
@@ -13,13 +23,14 @@
 - updated the webinstaller (works for new installs and upgrades)
 	fixed some errors in the installer
  
-update from 2.0 to 2.3? 
-- download the installer through ssh(putty or other ssh client) in your /home/pi directory and run the script with sudo)
+#Installer / Upgrade
+ update from 2.0 to 2.3 or run the first install?
+- download the installer through ssh(putty or other ssh client) in your /home/pi directory and run the script with sudo). check below which version you are running
 - no changes are made in the database
 - new install with existing database? you wont loose anything.
 - Make sure to check which version you run:
 ```
-sudo /cat/etc-os-release
+sudo /cat/etc/os-release
 ```
 PRETTY_NAME="Raspbian GNU/Linux 8 (jessie)"  -> download Jessie installer
 ```
