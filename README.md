@@ -54,10 +54,9 @@ if you are running the e2pv script without mysql, its best to re-run the install
 
 #Setup Dashboard:
 I made this a lot easier.
-- 1. download the installer script and run it.
-- 2. go to the webinstaller
-- 3. login to the dashboard and check/insert your inverters
-- 4. done
+- download the installer script and run it.
+- go to the webinstaller
+- login to the dashboard and check/insert your inverters
 
 - default login: admin
 - default email: admin@dashboard.lan 
@@ -87,8 +86,6 @@ It needs to run on the same host where the the script of Omoerbeek is running.
 Forum Topic on Tweakers: http://gathering.tweakers.net/forum/list_messages/1627615/0
 
 Demo: not yet available (check screenshots in INSTALL directory)
-
-
 
 #Note:
 /*
