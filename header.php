@@ -1,5 +1,5 @@
 <?php
-// page version: 2.2
+// page version: 2.3
 include 'language/' . $language . '.inc.php';
 ?>
 <!doctype html>
@@ -20,7 +20,6 @@ include 'language/' . $language . '.inc.php';
     <link rel="stylesheet" href="<?php echo $DOCUMENT_ROOT; ?>/assets/jquery/jquery-ui-1.11.4/jquery-ui.css">
     <script src="<?php echo $DOCUMENT_ROOT; ?>/assets/jquery/1.11.3/jyquery-1.11.3.js"></script>
     <script src="<?php echo $DOCUMENT_ROOT; ?>/assets/jquery/jquery-ui-1.11.4/jquery-ui.js"></script>
- 
 </head>
 
 <body>
@@ -75,8 +74,7 @@ include 'language/' . $language . '.inc.php';
                     </li>
                     <!-- logout -->
                     <li><a href="<?php echo $DOCUMENT_ROOT; ?>/logout.php"><i class="fa fa-power-off fa-fw"></i> <?php echo $LANG_HEADER_LOGOFF; ?></a></li>
-                    
-                   
+                                 
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->

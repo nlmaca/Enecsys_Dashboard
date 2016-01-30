@@ -4,8 +4,10 @@ language file english
 top page: <?php include ('../../language/' . $language . '.inc.php'); ?>
 <?php echo $LANG_INVERTER; ?>
 */
-// page version: 2.2
-//Intro
+// page version: 2.3
+
+$DESCRIPTION = 'Solar Panel Dashboard';
+
 $LANG_UPDATED = 'No of rows updated: '; 
 
 //index login page /index.php
@@ -30,7 +32,7 @@ $LANG_LIVE_STATE = 'State: ';
 $LANG_LIVE_TODAY = 'Today';
 $LANG_LIVE_PANEL = 'Panel: ';
 $LANG_LIVE_LAST_UPDATE = 'Last update';
-$LANG_LIVE_POWER = 'Power(wh)';
+$LANG_LIVE_POWER = 'Power(W)';
 $LANG_LIVE_DC_CURRENT = 'DC Current(amp)';
 $LANG_LIVE_AC_CURRENT = 'AC Current(amp)';
 $LANG_LIVE_AC_FREQ = 'AC Freq';

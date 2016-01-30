@@ -11,9 +11,9 @@ include '../../language/' . $language . '.inc.php';
 echo "PV output Team page<br>";
 ?>
 
-<div class="embed-responsive embed-responsive-16by9">
-  <iframe class="embed-responsive-item" src="http://www.pvoutput.org/ladder.jsp?tid=1018"></iframe>
-</div>
+	<div class="embed-responsive embed-responsive-16by9">
+	  <iframe class="embed-responsive-item" src="http://www.pvoutput.org/ladder.jsp?tid=1018"></iframe>
+	</div>
 
 
 <?php

@@ -1,4 +1,4 @@
-/* page version: 2.2 */
+/* page version: 2.3 */
 CREATE TABLE IF NOT EXISTS `inverters` (
   `data_id` int(11) NOT NULL AUTO_INCREMENT,
   `inverter_serial` varchar(30) NOT NULL,
@@ -21,6 +21,9 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB;
+
+INSERT INTO users (id, username, password, salt, email) VALUES
+(1, 'admin', 'd7d3814a18eb8695e5db382e5be61bb5ac920fa44c11c707f548ef3601935217', '1a00eed160382dc3', 'admin@dashboard.lan');
 
 CREATE TABLE IF NOT EXISTS enecsys (
   ts TIMESTAMP NOT NULL,
@@ -49,15 +52,3 @@ CREATE TABLE IF NOT EXISTS enecsys_history (
   state INT NOT NULL,
   key (ts, id)
 )ENGINE=InnoDB;
-
-
-/* default user: user: admin / email: admin@dashboard.lan / password: dashboard
-INSERT INTO `users` (`id`, `username`, `password`, `salt`, `email`) VALUES
-(1, 'admin', 'd7d3814a18eb8695e5db382e5be61bb5ac920fa44c11c707f548ef3601935217', '1a00eed160382dc3', 'admin@dashboard.lan');
-*/
-
-/* check if user already exists when updating dashboard from previous versions */
-INSERT INTO users (id, username, password, salt, email) VALUES
-(1, 'admin', 'd7d3814a18eb8695e5db382e5be61bb5ac920fa44c11c707f548ef3601935217', '1a00eed160382dc3', 'admin@dashboard.lan') FROM users
-WHERE NOT EXISTS
-(select id from users where username = 'admin');

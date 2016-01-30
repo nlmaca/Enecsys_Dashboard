@@ -4,8 +4,11 @@ language file dutch
 top page: <?php include ('../../language/' . $language . '.inc.php'); ?>
 <?php echo $LANG_INVERTER; ?>
 */
-// page version: 2.2
+// page version: 2.3
 //Intro
+// todo: change to constants (example: define ("LANG_UPDATED", "Aant rijen bijgewerkt: ");
+$DESCRIPTION = 'Zonne Panelen Dashboard';
+
 $LANG_UPDATED = 'Aant rijen bijgewerkt: '; 
 
 //index login page /index.php
@@ -30,7 +33,7 @@ $LANG_LIVE_STATE = 'Status: ';
 $LANG_LIVE_TODAY = 'Vandaag';
 $LANG_LIVE_PANEL = 'Paneel: ';
 $LANG_LIVE_LAST_UPDATE = 'Laatst bijgewerkt';
-$LANG_LIVE_POWER = 'Power(wh)';
+$LANG_LIVE_POWER = 'Power(W)';
 $LANG_LIVE_DC_CURRENT = 'DC Current(amp)';
 $LANG_LIVE_AC_CURRENT = 'AC Current(amp)';
 $LANG_LIVE_AC_FREQ = 'AC Freq';

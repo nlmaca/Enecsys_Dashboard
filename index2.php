@@ -1,5 +1,5 @@
 <?php
-// page version: 2.2
+// page version: 2.3
 require("inc/general_conf.inc.php");
 if(empty($_SESSION['user'])) {
     header("Location: index.php");
@@ -11,39 +11,68 @@ include 'language/' . $language . '.inc.php';
 echo "Page after login<br>";
 ?>
 <div class="container">
-  <h2>Version: 2.1.1</h2>
-  <div class="panel panel-default">
-    <div class="panel-body">
-           - created web installer for new installation (database has to be created though)<br>
-           - created this page with some default information<br>
-           - created pvoutput page, where the team page will be displayed (around 56 members already :D)<br>
-           - updated version font-awesome to 4.5.0
-        
-    </div>
-  </div>
-</div>
+	<div class="container">
+	  <h2>Version: 2.3</h2>
+	  <div class="panel panel-default">
+		<div class="panel-body">
+			- fixed some typo's in the readme<br>
+			- changed description in detailed overview (Power(Wh) to Power (W))<br>
+			- fixed some php errors of missing language variables<br>
+			- updated scripts for the raspberry installers/upgrades (works on Jessie and Wheezy)<br>
+			- fixed some errors in the webinstaller<br>
+			<ul>
+				<li>static_ip.sh</li>
+				<li>create_database.sh</li>
+				<li>reset_mysql_rootpass.sh</li>
+				<li>e2pv_install.sh</li>
+			</ul>
+			created 2 installers for the rpi's;<br>
+			<ul>
+				<li>install_dashboard_jessie.sh (installer/updater if you are running Debian Jessie)</li>
+				<li>install_dashboard_wheezy.sh (installer/updater if you are running Debian Wheezy)</li>
+				<li>updated the webinstaller (works for new installs and upgrades)</li>
+			</ul>
+		</div>
+	  </div>
+	</div>
 
-<div class="container">
-  <h2>Version: 2.1</h2>
-  <div class="panel panel-default">
-    <div class="panel-body">Bugfixing:<br>
-        - added jquery datepicker to history selection (wasn't working in IE).<br>
-        - added jquery datepicker to inverter page<br>
-        - added some text information. to create history views, you need to update the history table first.<br>
-    
-    </div>
-  </div>
-</div>
+	<div class="container">
+	  <h2>Version: 2.2</h2>
+	  <div class="panel panel-default">
+		<div class="panel-body">
+			 - minor fixes and some enhancements<br>
+			- created web installer for new dashboard installations (database has to be created though, and cronjobs have to be set)<br>
+			- created this page with some default information<br>
+			- changed the readme with the cronjob. users got confused<br>
+			- removed the mysql dump script. its not really a part of the dashboard. i will release loose linux/enecsys scripts in another github repository<br>
+			- created pvoutput page (see top navigation), where the team page will be displayed (around 56 members already :D) <br>
+			- updated version font-awesome to 4.5.0<br>
 
-<div class="container">
-  <h2>Version: 2.0 - Stable release</h2>
-  <div class="panel panel-default">
-    <div class="panel-body">
-      - First release of the rebuild dashboard<br>
-    </div>
-  </div>
-</div>
+		</div>
+	  </div>
+	</div>
 
+	<div class="container">
+	  <h2>Version: 2.1</h2>
+	  <div class="panel panel-default">
+		<div class="panel-body">Bugfixing:<br>
+			- added jquery datepicker to history selection (wasn't working in IE).<br>
+			- added jquery datepicker to inverter page<br>
+			- added some text information. to create history views, you need to update the history table first.<br>
+		
+		</div>
+	  </div>
+	</div>
+
+	<div class="container">
+	  <h2>Version: 2.0 - Stable release</h2>
+	  <div class="panel panel-default">
+		<div class="panel-body">
+		  - First release of the rebuild dashboard<br>
+		</div>
+	  </div>
+	</div>
+</div>
 
 <?php 
 /*

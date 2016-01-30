@@ -45,7 +45,7 @@ while($row=mysqli_fetch_array($output)){
 	}
 }
 echo "</table></div><br>";
-echo "<a href='inverters_create.php'class='btn btn-info'>" . $LANG_BUTTON_ADD_INVERTER . "</a>";
+echo "<a href='inverters_create.php' class='btn btn-info'>" . $LANG_BUTTON_ADD_INVERTER . "</a>";
 mysqli_close($connect);
 
 include ("../footer.php");

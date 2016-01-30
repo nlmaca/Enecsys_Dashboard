@@ -1,8 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Installation Script</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Webinstaller</title>
+    <meta name="description" content="Webinstaller">
+    <meta name="author" content="J. van Marion">
+     <link href="../assets/css/sticky-footer.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../assets/css/style.min.css" rel="stylesheet">
+    <link href="../assets/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="icon" href="../img/favicon.ico?v=2" type="image/x-icon" />
+    <script src="../assets/jquery-2.1.4.min.js"></script>
+    <link rel="stylesheet" href="../assets/jquery/jquery-ui-1.11.4/jquery-ui.css">
+    <script src="../assets/jquery/1.11.3/jyquery-1.11.3.js"></script>
+    <script src="../assets/jquery/jquery-ui-1.11.4/jquery-ui.js"></script>
 </head>
+<!-- // page version: 2.3 -->
+<body>
+<div id="wrap">
+    <nav class="navbar navbar-default bg-black">
+        <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only"></span>
+                    <i class="fa fa-bars fa-2x"></i>
+                </button>
+				<a class="navbar-brand" href="#">
+                <img alt="Brand" src="../img/sun-32.png" alt="Enecsys Dashboard" title="Enecsys Dashboard">
+                </a>
+            </div>
+        
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div id="navbar" class="navbar-collapse collapse">
+               
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+<div class="container">
+	<div class="container">
+		<h2>Web Installer</h2>
+<!-- end navigation -->
+
 <?php
 // page version: 2.2
 /**
@@ -12,6 +53,8 @@
  * @link http://stackoverflow.com/a/9328760
  */
  /* function for getting Timezone in dropdown list */
+
+
 function tz_list() {
   $zones_array = array();
   $timestamp = time();
@@ -24,7 +67,7 @@ function tz_list() {
 }
 ?>
 <?php
-//credits script: http://tutsforweb.blogspot.nl/2012/02/php-installation-script.html
+/*credits script: http://tutsforweb.blogspot.nl/2012/02/php-installation-script.html */
 //rebuild for mysqli by J. van Marion
 // page version: 2.2
 
@@ -57,11 +100,13 @@ function step_1(){
 		echo "You must agree to the license.";
 	}
 ?>
-	<p>Copyright (c) 2015 Jeroen van Marion jeroen@vanmarion.nl
-	Permission to use, copy, modify, and distribute this software for any purpose with or without fee is hereby granted, just give me some credit when you talk about it :D<br><br>
+	<h3>Step 1:</h3>
+	<p>Copyright (c) 2015 Jeroen van Marion jeroen@vanmarion.nl<br>
+	Permission to use, copy, modify, and distribute this software for any purpose without fee is hereby granted.<br>
+	just give me some credit when you talk about it :D<br><br>
     
-    This script will NOT overwrite your mysql tables if you already have installed this dashboard with an earlier version. It checks if the tables and default user are present. IF so, it will ignore the creation
-    and insert of data in the database.<br><br>
+    Upgrading? Don't worry, this script will NOT overwrite your existin mysql tables.<br>
+	if you already have installed this dashboard with an earlier version, it will just upgrade it without problems<br>
     
     </p>
 	<form action="install.php?step=1" method="post">
@@ -88,6 +133,7 @@ function step_2(){
 		$pre_error .= 'general_conf.inc.php needs to be writable for our site to be installed!';
 	}
 ?>
+	<h3>Step 2: check if you match requirements.</h3>
 	<table width="100%">
 		<tr>
 			<td>PHP Version:</td>
@@ -112,7 +158,7 @@ function step_2(){
 		</tr>
 	</table>
 	<form action="install.php?step=2" method="post">
-		<input type="hidden" name="pre_error" id="pre_error" value="<?php echo $pre_error;?>" />
+		<input type="hidden" name="pre_error" id="pre_error" value="" />
 		<input type="submit" name="continue" value="Continue" />
 	</form>
 <?php
@@ -146,7 +192,7 @@ function step_3(){
 						$query .= $line;
 						if (preg_match('/;\s*$/', $line)) {
 							mysqli_query($connect, $query);
-							$err = mysqli_error();
+							$err = mysqli_error($connect);
 							if (!empty($err))
 							break;
 							$query = '';
@@ -155,59 +201,85 @@ function step_3(){
 				}
 			}
 			$f=fopen("../inc/general_conf.inc.php","w");
-			$database_inf='<?php
-			$dbUserName = "'. $database_username .'"; 
-			$dbUserPasswd = "'. $database_password .'"; 
-			$dbHost = "'. $database_host .'"; 
-			$dbName = "'. $database_name .'"; 
+$database_inf='<?php
+$dbUserName = "'. $database_username .'"; 
+$dbUserPasswd = "'. $database_password .'"; 
+$dbHost = "'. $database_host .'"; 
+$dbName = "'. $database_name .'"; 
 
-			$options = array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"); 
-			try { $db = new PDO("mysql:host={$dbHost};dbname={$dbName};charse1t=utf8", $dbUserName, $dbUserPasswd, $options); } 
-			catch(PDOException $ex){ die("Failed to connect to the database: " . $ex->getMessage());} 
-			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
-			$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC); 
-			header("Content-Type: text/html; charset=utf-8"); 
-			session_start(); 
+$options = array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"); 
+try { $db = new PDO("mysql:host={$dbHost};dbname={$dbName};charse1t=utf8", $dbUserName, $dbUserPasswd, $options); } 
+catch(PDOException $ex){ die("Failed to connect to the database: " . $ex->getMessage());} 
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC); 
+header("Content-Type: text/html; charset=utf-8"); 
+session_start(); 
 			
-			$DOCUMENT_ROOT = "/'. $directory .'"; // NO trailerslash!!!!
-			$TITLE = "'. $title .'";
-			$language = "'. $language .'"; // use english or dutch (ENG, NL)
-			date_default_timezone_set("'. $timezone .'");
-			?>';
+$DOCUMENT_ROOT = "/'. $directory .'"; // NO trailerslash!!!!
+$TITLE = "'. $title .'";
+$language = "'. $language .'"; // use english or dutch (ENG, NL)
+date_default_timezone_set("'. $timezone .'");
+?>';
 			if (fwrite($f,$database_inf)>0){
 				fclose($f);
 			}
 			header("Location: install.php?step=4");
-			//header("Location: http://" . $_SERVER['SERVER_ADDR'] . "/" . $directory);
-			//  echo "Succesfully deployed: Go to your dashboard:<br>"
-			//  echo "http://" . $_SERVER['SERVER_ADDR'] . "/" . $directory; 
+
 		}
 	}
 ?>
+	<h3>Step 3:</h3>
 	<form method="post" action="install.php?step=3">
 		<p>
 			<input type="text" name="database_host" value='localhost' size="30">
 			<label for="database_host">Database Host</label>
 		</p>
 		<p>
-			<input type="text" name="database_name" size="30" value="<?php echo $database_name; ?>">
+			<input type="text" name="database_name" size="30" value="">
 			<label for="database_name">Database Name</label>
 		</p>
 		<p>
-			<input type="text" name="database_username" size="30" value="<?php echo $database_username; ?>">
+			<input type="text" name="database_username" size="30" value="">
 			<label for="database_username">Database Username</label>
 		</p>
 		<p>
-			<input type="text" name="database_password" size="30" value="<?php echo $database_password; ?>">
+			<input type="text" name="database_password" size="30" value="">
 			<label for="database_password">Database Password</label>
 		</p>
 		<br/>
 		<p>
-			<input type="text" name="directory" size="30" value="<?php echo $directory; ?>">
-			<label for="directory">Directory (example /var/www/enecsys = enecsys)</label>
+			<input type="text" name="directory" size="30" value="">
+			<label for="directory">
+				Your Web Directory: 
+				<!-- Button trigger modal -->
+				<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">
+				  Help?
+				</button>
+				<!-- Modal -->
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				  <div class="modal-dialog" role="document">
+					<div class="modal-content">
+					  <div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">Setting webdirectory</h4>
+					  </div>
+					  <div class="modal-body">
+						<img src="webdirectory.png"><br>
+						<b>Webdirectory:</b><br> Set the same directory you have set in the installer you have run on your raspberry in the install_dashboard_jessie or wheezy installer.<br>
+						You can also see it in the url in your addressbar (example url: http://192.168.10.82/enecsys/INSTALL/install.php?step=3 ) Then fill in:<br>
+						enecsys <br>
+					  </div>
+					  <div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					  
+					  </div>
+					</div>
+				  </div>
+				</div>
+			</label>
 		</p>
 		<p>
-			<input type="text" name="title" size="30" value="<?php echo $title; ?>">
+			<input type="text" name="title" size="30" value="">
 			<label for="title">Title for you Dashboard</label>
 		</p>
 		<p>
@@ -236,46 +308,32 @@ function step_3(){
 <?php
 }
 function step_4(){
-	echo "Check if tables are created:<br>";
-
-	$check_1 = mysqli_query($connect, "select 1 from `inverters` LIMIT 1");
-	$check_2 = mysqli_query($connect, "select 1 from `enecsys_history` LIMIT 1");
-	$check_3 = mysqli_query($connect, "select 1 from `users` LIMIT 1");
-	$check_4 = mysqli_query($connect, "select 1 from `enecsys` LIMIT 1");
-/*
-	if ($check_1 == ''){
-		echo "Ok. table <b>inverters</b> is created or existed already<br>"
-	}
-	else {
-		echo "cant find the table <b>inverters</b>. Please check your log files or run the script manually ";
-	}
-
-
-	else if ($check_2 !== FALSE){
-		echo "Ok. table <b>enecsys_history</b> is created or existed already<br>"
-	}
-	else {
-		echo "cant find the table <b>enecsys_history</b>. Please check your log files or run the script manually ";
-	}
-	
-	else if ($check_3 !== FALSE){
-		echo "Ok. table <b>users</b> is created or existed already<br>"
-	}
-	else {
-		echo "cant find the table <b>users</b>. Please check your log files or run the script manually ";
-	}
-	
-	else if ($check_4 !== FALSE){
-		echo "Ok. table <b>enecsys</b> is created or existed already<br>"
-	}
-	else {
-		echo "cant find the table <b>enecsys</b>. Please check your log files or run the script manually ";
-	}
-*/
-    $Dashb_IP = $_SERVER['SERVER_ADDR'];
-	echo "Deployment complete. Before going to your dashboard, make sure to delete the INSTALL directory.<br>";
-	echo "<a href='http://$Dashb_IP/yourwebdirectory'>Go to your dashboard</a>";
- 
+	//echo "Check if tables are created:<br>";
+	echo "<h3>Step 4: Finalize</h3>";
+	echo "Remove: <b>INSTALL/install.php?step=4</b> from the URL to go to your dashboard<br>";
+	echo "and login with:<br>username: admin<br>password: dashboard<br>";
+	echo "Deployment complete.<br>";
+	echo "";
 }
-mysqli_close($connect); 
 ?>
+<!-- end content -->
+</div></div>
+</div> <!-- /.wrap -->
+<div id="footer" class="bg-black">
+      <div class="container">
+            <p class="text-muted" align="center"><br>&copy; <?php echo date("Y"); ?> Developed by J. van Marion /
+            <a href="https://github.com/nlmaca" target="_blank"><i class="fa fa-github-alt fa-lg">&nbsp;&nbsp;</i></a>
+                   <a href="https://nl.linkedin.com/in/jeroenvanmarion" target="_blank"><i class="fa fa-linkedin-square fa-lg">&nbsp;&nbsp;</i></a>
+            <br>Version 2.3</p>
+      </div>
+</div>
+
+
+<script src="../assets/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
+</body>
+</html>
