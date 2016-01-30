@@ -14,6 +14,9 @@
 	fixed some errors in the installer
  
 update from 2.0 to 2.3? 
+- download the installer through ssh(putty or other ssh client) in your /home/pi directory and run the script with sudo)
+- no changes are made in the database
+- new install with existing database? you wont loose anything.
 - Make sure to check which version you run:
 ```
 sudo /cat/etc-os-release
@@ -21,17 +24,13 @@ sudo /cat/etc-os-release
 PRETTY_NAME="Raspbian GNU/Linux 8 (jessie)"  -> download Jessie installer
 ```
 cd /home/pi
-wget https://github.com/nlmaca/Enecsys_RPI_images/blob/master/scripts/install_dashboard_jessie.sh
+wget https://raw.githubusercontent.com/nlmaca/Enecsys_RPI_images/master/scripts/install_dashboard_jessie.sh
 ```
 PRETTY_NAME="Raspbian GNU/Linux 7 (wheezy)"  -> download Wheezy installer
 ```
 cd /home/pi
-wget https://github.com/nlmaca/Enecsys_RPI_images/blob/master/scripts/install_dashboard_wheezy.sh
+wget https://raw.githubusercontent.com/nlmaca/Enecsys_RPI_images/master/scripts/install_dashboard_wheezy.sh
 ```
-
-- download the installer through ssh(putty or other ssh client) in your /home/pi directory and run the script with sudo)
-- no changes are made in the database
-- new install with existing database? you wont loose anything.
 
 #Requirements
 - Apache 2.x
@@ -54,49 +53,15 @@ should give you this result:
 if you are running the e2pv script without mysql, its best to re-run the installer, see for info: https://github.com/nlmaca/Enecsys_RPI_images
 
 #Setup Dashboard:
-Create the database and user for the dashboard within phpmyadmin 
-from here you're done. i created a webinstaller for the dashboard.
-
-I assume you are using this on a raspberry
-``` 
-cd /home/pi
-mkdir dash_temp
-cd /home/pi/dash_temp
-wget https://github.com/nlmaca/Enecsys_Dashboard/archive/master.zip
-
-unzip master.zip
-```
-
-Create a  web directory on your /var/www
-(where enecsys will be the directory for the dashboard files (name it to whatever you like))
-```
-sudo mkdir /var/www/html/enecsys 
-```
-Time to copy all the files to the new webdirectory and make the config file writable
-```
-cd /home/pi/dash_temp/Enecsys_Dashboard-master
-sudo cp * -R /var/www/enecsys
-sudo chmod 777 /var/www/html/enecsys/inc/general_conf.inc.php
-``` 
-Ok. time to run the webinstaller. Open your browser and go to the ipaddress of your raspberry and followed by /enecsys/INSTALL/install.php<br>
-Just walk through the installer
-
-you need to have:
-- the database credentials from your just created or already present database
-- your webdirectory where you copied the files to
-
-
-After this you should be able to login into the dashboard. Your ipaddress followed by your webdirectory (Example: http://10.0.0.50/enecsys<br>
-http://IP_RASPBERRY/enecsys
+I made this a lot easier.
+1. download the installer script and run it.
+2. go to the webinstaller
+3. login to the dashboard and check/insert your inverters
+4. done
 
 default login: admin
 default email: admin@dashboard.lan 
 default password: dashboard
-
-#Raspberry pi.
-if running on rpi (1 or 2) its best to optimize mysql
-http://www.ducky-pond.com/posts/2014/Feb/how-to-install-and-optimize-mysql-on-raspberry-pi/
-
 
 # Enecsys_Dashboard - Version 2.2
 - minor fixes and some enhancements
