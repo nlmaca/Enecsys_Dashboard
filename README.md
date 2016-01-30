@@ -55,12 +55,14 @@ if you are running the e2pv script without mysql, its best to re-run the install
 #Setup Dashboard:
 I made this a lot easier.
 - download the installer script and run it.
-- go to the webinstaller
-- login to the dashboard and check/insert your inverters
+- go to the webinstaller.
+- login to the dashboard and check/insert your inverters.
 
+```
 - default login: admin
 - default email: admin@dashboard.lan 
 - default password: dashboard
+```
 
 # Enecsys_Dashboard - Version 2.2
 - minor fixes and some enhancements
