@@ -2,6 +2,7 @@
 // page version: 2.0
 // Author: Michael Milstead / Mode87.com 
 require("../inc/general_conf.inc.php");
+include ('../language/' . $language . '.inc.php'); 
 if(empty($_SESSION['user'])) {
 	header("Location: ". $DOCUMENT_ROOT . "/index.php");
     die("Redirecting to ". $DOCUMENT_ROOT . "/index.php"); 
@@ -61,7 +62,6 @@ if(empty($_SESSION['user'])) {
     } 
 
 include ("../header.php");
-include ('../language/' . $language . '.inc.php'); 
 ?>
    
 <body>
