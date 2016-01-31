@@ -68,14 +68,14 @@ include ("../header.php");
 <div id="wrap">
  
 <div class="col-xs-8 col-sm-4">
-    <h1>Create User</h1> <br /><br />
+    <h1><?php echo $LANG_CREATE_USER; ?></h1> <br /><br />
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" autocomplete="off" method="post"> 
         <div class="form-group">
             <label for="username"><?php echo $LANG_LOGINUSERNAME; ?></label>
             <input type="text" class="form-control" id="username" name="username" placeholder="username" value="">
         </div>
         <div class="form-group">
-            <label for="email"><?php echo $LANG_LOGINEMAIL; ?></label>
+            <label for="email"><?php echo $LANG_EMAIL; ?></label>
             <input type="text" class="form-control" id="email" name="email" placeholder="email adres" value="">
         </div>
         <div class="form-group">

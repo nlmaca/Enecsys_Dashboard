@@ -5,8 +5,6 @@ top page: <?php include ('../../language/' . $language . '.inc.php'); ?>
 <?php echo $LANG_INVERTER; ?>
 */
 // page version: 2.3
-//Intro
-// todo: change to constants (example: define ("LANG_UPDATED", "Aant rijen bijgewerkt: ");
 $DESCRIPTION = 'Zonne Panelen Dashboard';
 
 $LANG_UPDATED = 'Aant rijen bijgewerkt: '; 
@@ -14,7 +12,6 @@ $LANG_UPDATED = 'Aant rijen bijgewerkt: ';
 //index login page /index.php
 $LANG_LOGINUSERNAME = 'Gebruikersnaam';
 $LANG_LOGINPASSWORD = 'Wachtwoord';
-$LANG_lOGINEMAIL = 'Email';
 $LANG_SIGNIN = 'Inloggen';
 
 //HEADER - /header.php
@@ -27,6 +24,12 @@ $LANG_HEADER_DB = 'DB Optimalisatie';
 $LANG_HEADER_USERS = 'Gebruikers';
 $LANG_HEADER_OVERVIEW_USERS = 'Gebruikers overzicht';
 $LANG_HEADER_LOGOFF = 'Uitloggen';
+
+//user create /settings/user_create.php
+$LANG_CREATE_USER = 'Gebruiker aanmaken';
+
+//user delete /settings/user_delete.php
+$LANG_REMOVE_USERE_SUCCESS = 'Gebruiker verwijderd';
 
 //live page /products/solar/overview & overview_inverter.php
 $LANG_LIVE_STATE = 'Status: ';
@@ -108,7 +111,7 @@ $LANG_YEARDAY = 'Dag vh jaar';
 $LANG_FROM = 'Van: ';
 $LANG_TO = 'Tot: ';
 $LANG_USERNAME = 'Gebruikersnaam';
-$LANG_EMAIL = 'Email';
+$LANG_EMAIL = 'Email adres';
 $LANG_USER_INFO = 'Gebruikers Informatie';
 
 //STRINGS

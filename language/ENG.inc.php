@@ -5,7 +5,6 @@ top page: <?php include ('../../language/' . $language . '.inc.php'); ?>
 <?php echo $LANG_INVERTER; ?>
 */
 // page version: 2.3
-
 $DESCRIPTION = 'Solar Panel Dashboard';
 
 $LANG_UPDATED = 'No of rows updated: '; 
@@ -13,7 +12,6 @@ $LANG_UPDATED = 'No of rows updated: ';
 //index login page /index.php
 $LANG_LOGINUSERNAME = 'Username';
 $LANG_LOGINPASSWORD = 'Password';
-$LANG_lOGINEMAIL = 'Email';
 $LANG_SIGNIN = 'Sign in';
 
 //HEADER - /header.php
@@ -26,6 +24,12 @@ $LANG_HEADER_DB = 'DB performance';
 $LANG_HEADER_USERS = 'Users';
 $LANG_HEADER_OVERVIEW_USERS = 'User overview';
 $LANG_HEADER_LOGOFF = 'Logout';
+
+//user create /settings/user_create.php
+$LANG_CREATE_USER = 'Create user';
+
+//user delete /settings/user_delete.php
+$LANG_REMOVE_USERE_SUCCESS = 'Succesfully removed user';
 
 //live page /products/solar/overview & overview_inverter.php
 $LANG_LIVE_STATE = 'State: ';
@@ -107,7 +111,7 @@ $LANG_YEARDAY = 'Year day';
 $LANG_FROM = 'From: ';
 $LANG_TO = 'Until: ';
 $LANG_USERNAME = 'Username';
-$LANG_EMAIL = 'Email';
+$LANG_EMAIL = 'Email address';
 $LANG_USER_INFO = 'User Information';
 
 //STRINGS
