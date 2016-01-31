@@ -29,7 +29,7 @@ $LANG_HEADER_LOGOFF = 'Logout';
 $LANG_CREATE_USER = 'Create user';
 
 //user delete /settings/user_delete.php
-$LANG_REMOVE_USERE_SUCCESS = 'Succesfully removed user';
+$LANG_REMOVE_USER_SUCCESS = 'Succesfully removed user';
 
 //live page /products/solar/overview & overview_inverter.php
 $LANG_LIVE_STATE = 'State: ';

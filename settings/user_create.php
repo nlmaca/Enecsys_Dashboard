@@ -82,7 +82,8 @@ include ("../header.php");
             <label for="password"><?php echo $LANG_LOGINPASSWORD; ?></label>
             <input type="password" class="form-control" id="password" name="password" placeholder="password" value="">
         </div>
-        <input type="submit" class="btn btn-info  btn-xs" value="<?php echo $LANG_BUTTON_CREATE; ?>" /> 
+        <input type="submit" class="btn btn-success" value="<?php echo $LANG_BUTTON_CREATE; ?>" /> 
+		<a href="user_overview.php" class="btn btn-info"><?php echo $LANG_BUTTON_CANCEL; ?></a>
      </form>
 </div>
 

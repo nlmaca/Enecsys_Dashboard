@@ -24,7 +24,7 @@ echo "<div class='panel-heading'>Application information</div>";
 echo "<table class='table table-bordered'>";
 
 //echo ("Affected rows (DELETE): %d\n", $connect->affected_rows);
-echo "<tr><td>Succesfully removed user<br><br>";
+echo "<tr><td>" . $LANG_REMOVE_USER_SUCCESS . "Succesfully removed user<br><br>";
 echo "<a href='user_overview.php' class='btn btn-info  btn-xs'>" . $LANG_BUTTON_BACK_OVERVIEW . "</a>";
 echo "</td></tr>";
 mysqli_close($connect);
