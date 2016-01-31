@@ -36,11 +36,15 @@ PRETTY_NAME="Raspbian GNU/Linux 8 (jessie)"  -> download Jessie installer
 ```
 cd /home/pi
 wget https://raw.githubusercontent.com/nlmaca/Enecsys_RPI_images/master/scripts/install_dashboard_jessie.sh
+chmod +x install_dashboard_jessie.sh
+sudo ./install_dashboard_jessie.sh
 ```
 PRETTY_NAME="Raspbian GNU/Linux 7 (wheezy)"  -> download Wheezy installer
 ```
 cd /home/pi
 wget https://raw.githubusercontent.com/nlmaca/Enecsys_RPI_images/master/scripts/install_dashboard_wheezy.sh
+chmod +x install_dashboard_wheezy.sh
+sudo ./install_dashboard_wheezy.sh
 ```
 
 #Requirements
