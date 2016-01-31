@@ -54,7 +54,7 @@
 		<link href="assets/css/sticky-footer.css" rel="stylesheet">
 		<link href="assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
 		<link href="assets/css/style.min.css" rel="stylesheet">
-		<link href="assets/font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href="assets/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet">
 		<link href="assets/css/signin.css" rel="stylesheet">
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
