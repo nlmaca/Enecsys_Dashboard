@@ -12,7 +12,7 @@ echo "Page after login<br>";
 ?>
 <div class="container">
 	<div class="container">
-	  <h2>Version: 2.3</h2>
+	  <h2>Version: 2.3 - (january 31 2016)</h2>
 	  <div class="panel panel-default">
 		<div class="panel-body">
 			- fixed some typo's in the readme<br>
@@ -65,7 +65,7 @@ echo "Page after login<br>";
 	</div>
 
 	<div class="container">
-	  <h2>Version: 2.0 - Stable release</h2>
+	  <h2>Version: 2.0 - Stable release (november 16 2015)</h2>
 	  <div class="panel panel-default">
 		<div class="panel-body">
 		  - First release of the rebuild dashboard<br>
