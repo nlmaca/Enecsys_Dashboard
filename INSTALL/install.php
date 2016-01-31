@@ -14,7 +14,7 @@
     <link rel="icon" href="../img/favicon.ico?v=2" type="image/x-icon" />
     <script src="../assets/jquery-2.1.4.min.js"></script>
     <link rel="stylesheet" href="../assets/jquery/jquery-ui-1.11.4/jquery-ui.css">
-    <script src="../assets/jquery/1.11.3/jyquery-1.11.3.js"></script>
+    <script src="../assets/jquery/1.11.3/jquery-1.11.3.js"></script>
     <script src="../assets/jquery/jquery-ui-1.11.4/jquery-ui.js"></script>
 </head>
 <!-- // page version: 2.3 -->
