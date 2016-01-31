@@ -8,7 +8,7 @@ if(empty($_SESSION['user'])) {
 include ("../header.php");
 include ('../language/' . $language . '.inc.php'); 
 
-$id = htmlspecialchars($_POST['id']);
+//$id = htmlspecialchars($_POST['id']);
 $inverter = htmlspecialchars($_POST['inverterserial']);
 $invertertype = htmlspecialchars($_POST['invertertype']);
 $duosingle = htmlspecialchars($_POST['duosingle']);
