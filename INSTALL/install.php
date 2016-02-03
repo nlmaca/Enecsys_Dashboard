@@ -265,7 +265,8 @@ date_default_timezone_set("'. $timezone .'");
 					  </div>
 					  <div class="modal-body">
 						<img src="webdirectory.png"><br>
-						<b>Webdirectory:</b><br> Set the same directory you have set in the installer you have run on your raspberry in the install_dashboard_jessie or wheezy installer.<br>
+						<b>Webdirectory:</b><br> Set the same directory you have set in the installer when you installed the dashboard on your rpi.<br>
+						The foldername where you store the files.<br>
 						You can also see it in the url in your addressbar (example url: http://192.168.10.82/enecsys/INSTALL/install.php?step=3 ) Then fill in:<br>
 						enecsys <br>
 					  </div>
