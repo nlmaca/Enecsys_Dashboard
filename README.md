@@ -8,6 +8,11 @@ Some people made it work on their nas(synology), but i dont give support on that
 Forum Topic on Tweakers: http://gathering.tweakers.net/forum/list_messages/1627615/0
 Demo: not yet available (check screenshots in INSTALL directory)
 
+# Enecsys_Dashboard - Version 2.3.1	
+- did some minor fixes on the installer based on feedback of a user (Thx JakeNL)
+- updated the dashboard installers to make a copy of the config file in case it already exists.
+- added some more logic to the webinstaller. about what to fill in at the webdirectory
+
 # Enecsys_Dashboard - Version 2.3
 - fixed some typo's in the readme
 - changed description in detailed overview (Power(Wh) to Power (W))
@@ -24,13 +29,13 @@ Demo: not yet available (check screenshots in INSTALL directory)
 	fixed some errors in the installer
  
 #Installer / Upgrade
- update from 2.0 to 2.3 or run the first install?
+ update from 2.0 to 2.3.x or run the first install?
 - download the installer through ssh(putty or other ssh client) in your /home/pi directory and run the script with sudo). check below which version you are running
 - no changes are made in the database
-- new install with existing database? you wont loose anything.
+- new install with existing database? Make sure to keep your current mysql username and password at hand. Cause you need them.
 - Make sure to check which version you run:
 ```
-sudo /cat/etc/os-release
+sudo cat /etc/os-release
 ```
 PRETTY_NAME="Raspbian GNU/Linux 8 (jessie)"  -> download Jessie installer
 ```
