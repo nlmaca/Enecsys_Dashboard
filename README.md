@@ -11,7 +11,7 @@ Demo: not yet available (check screenshots in INSTALL directory)
 # Enecsys_Dashboard - Version 2.3.1	
 - did some minor fixes on the installer based on feedback of a user (Thx JakeNL)
 - updated the dashboard installers to make a copy of the config file in case it already exists.
-- added some more logic to the webinstaller. about what to fill in at the webdirectory
+- added some more logic to the webinstaller. about what to fill in at the webdirectory.
 
 # Enecsys_Dashboard - Version 2.3
 - fixed some typo's in the readme
