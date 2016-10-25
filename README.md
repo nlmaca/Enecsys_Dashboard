@@ -1,3 +1,9 @@
+**** NOTE ****
+2016-10-25
+Im working on a complete new dashboard and images. Hope to get it finished somewhere in November '16. It will
+have the e2pv script integrated. Teaser info can be found here:
+http://vanmarion.nl/blog/blog/enecsys-dashboard-v3-0-teaser/
+
 #Intro
 is based on the need for a Solar Dashboard to monitor on a local server. to monitor the enecsys inverters 
 It needs to run on the same host where the the script of Omoerbeek is running.
