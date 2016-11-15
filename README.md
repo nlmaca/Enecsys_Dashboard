@@ -1,4 +1,8 @@
 **** NOTE ****
+2016-11-15
+Beta testing has started with several users
+
+
 2016-10-25
 Im working on a complete new dashboard and images. Hope to get it finished somewhere in November '16. It will
 have the e2pv script integrated. Teaser info can be found here:
