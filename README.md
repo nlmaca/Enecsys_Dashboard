@@ -1,137 +1,38 @@
-**** NOTE ****
-2016-11-15
-Beta testing has started with several users
 
-
-2016-10-25
-Im working on a complete new dashboard and images. Hope to get it finished somewhere in November '16. It will
-have the e2pv script integrated. Teaser info can be found here:
-http://vanmarion.nl/blog/blog/enecsys-dashboard-v3-0-teaser/
+#Update
+I completely rebuild version 2.3. This resulted in version 3.0. I'm pretty stoked about it. I hope you like it just as i like it:D 
 
 #Intro
-is based on the need for a Solar Dashboard to monitor on a local server. to monitor the enecsys inverters 
-It needs to run on the same host where the the script of Omoerbeek is running.
+This dashboard is written in php and is depending on the output of the script from <a href="https://github.com/omoerbeek/e2pv">Omoerbeek</a>. The script is integrated
+in the dashboard, so i tweaked it a bit:D. The previous version was a first setup. From this end i supported quite some users on this project, but it was hard to maintain for users. Thats why
+i decided to build a new dashboard with the e2pv script integrated. I think it worked out pretty fine.
 
-The installer scripts are made to run a RPI B+ or RPI 2 
-Some people made it work on their nas(synology), but i dont give support on that. 
+#What does it do?
+If you have Gen1 Enecsys inverters, you are able to use this dashboard. It will give you an indication of your inverters, with long term history. Ad the same time it will
+output the data to your pvoutput, which has a bit more detailed history overall. In my dashboard you can see more on an inverter level.
 
-Forum Topic on Tweakers: http://gathering.tweakers.net/forum/list_messages/1627615/0
-Demo: not yet available (check screenshots in INSTALL directory)
+The reason i choose for a rpi as a platform, is so you don't have to depend on 3rd parties anymore. You control your data. Also the costs are low.
 
-# Enecsys_Dashboard - Version 2.3.1	
-- did some minor fixes on the installer based on feedback of a user (Thx JakeNL)
-- updated the dashboard installers to make a copy of the config file in case it already exists.
-- added some more logic to the webinstaller. about what to fill in at the webdirectory.
+#Requirements hardware:
+- Raspberry Pi B+ or Raspberry Pi 2 or  Raspberry Pi 3 with LAN access (not wireless)
+- Operating System: Raspbian Jessie or Jessie (lite)
+- Micro(sd) of 8 GB is enough. Don't go further then 32GB, it can cause issues on the rpi (raspberry)
 
-# Enecsys_Dashboard - Version 2.3
-- fixed some typo's in the readme
-- changed description in detailed overview (Power(Wh) to Power (W))
-- fixed some php errors of missing language variables
-- updated scripts for the raspberry images (works on Jessie and Wheezy)
-	static_ip.sh
-	create_database.sh
-	reset_mysql_rootpass.sh
-	e2pv_install.sh
-- created 2 installers for the rpi's;
-	install_dashboard_jessie.sh (installer/updater if you are running Debian Jessie)
-	install_dashboard_wheezy.sh (installer/updater if you are running Debian Wheezy)
-- updated the webinstaller (works for new installs and upgrades)
-	fixed some errors in the installer
- 
-#Installer / Upgrade
- update from 2.0 to 2.3.x or run the first install?
-- download the installer through ssh(putty or other ssh client) in your /home/pi directory and run the script with sudo). check below which version you are running
-- no changes are made in the database
-- new install with existing database? Make sure to keep your current mysql username and password at hand. Cause you need them.
-- Make sure to check which version you run:
-```
-sudo cat /etc/os-release
-```
-PRETTY_NAME="Raspbian GNU/Linux 8 (jessie)"  -> download Jessie installer
-```
-cd /home/pi
-wget https://raw.githubusercontent.com/nlmaca/Enecsys_RPI_images/master/scripts/install_dashboard_jessie.sh
-chmod +x install_dashboard_jessie.sh
-sudo ./install_dashboard_jessie.sh
-```
-PRETTY_NAME="Raspbian GNU/Linux 7 (wheezy)"  -> download Wheezy installer
-```
-cd /home/pi
-wget https://raw.githubusercontent.com/nlmaca/Enecsys_RPI_images/master/scripts/install_dashboard_wheezy.sh
-chmod +x install_dashboard_wheezy.sh
-sudo ./install_dashboard_wheezy.sh
-```
+#Installation:
+Open INSTALL_RPI.pdf from the INSTALL directory
+A video will be created. I will add that in the next update
 
-#Requirements
-- Apache 2.x
-- PHP5.3+
-- MySQL (+phpmyadmin)
-- e2pv Script from Omoerbeek installed with output to database see: https://github.com/omoerbeek/e2pv
+#Support:
+I only support clean RPI installations. if you have other stuff running on your rpi, you are on your own. 
+The reason is the installer scripts are only made for an rpi environment. Other platforms can cause issues, that is beyond my scope. 
+If you want to run it on your nas or other device, you are free to download the code, i don't give support on it though. Thats up to you.
 
-#cronjobs
-should be running. check with:
-```
-crontab -l
-```
-should give you this result:
+* Note. if you are running V2.3 send me a message on jeroen@vanmarion.nl i do have upgrade scripts, but they won't work on a rpi, because it will run out of memory. 
+I can help you to migrate to the new version, but have to do that manually. I would appreciate it if you would make a donation. 
 
-```
-@reboot php /home/pi/enecsys/e2pv.php >> /home/pi/enecsys/e2pv.log
-0 1 * * * sudo cp /dev/null /home/pi/enecsys/e2pv.log
-```
+#Demo
+You can see a demo on my channel. it might not show all latest changes, but you will get the impression
+https://www.youtube.com/watch?v=a_dRUsGVymg
 
-if you are running the e2pv script without mysql, its best to re-run the installer, see for info: https://github.com/nlmaca/Enecsys_RPI_images
-
-#Setup Dashboard:
-I made this a lot easier.
-- download the installer script and run it.
-- go to the webinstaller.
-- login to the dashboard and check/insert your inverters.
-
-```
-- default login: admin
-- default email: admin@dashboard.lan 
-- default password: dashboard
-```
-
-# Enecsys_Dashboard - Version 2.2
-- minor fixes and some enhancements
-- created web installer for new dashboard installations (database has to be created though, and cronjobs have to be set)<br>
-- created this page with some default information<br>
-- changed the readme with the cronjob. users got confused.
-- removed the mysql dump script. its not really a part of the dashboard. i will release loose linux/enecsys scripts in another github repository
-- created pvoutput page (see top navigation), where the team page will be displayed (around 56 members already :D) 
-- updated version font-awesome to 4.5.0
-
-# Enecsys_Dashboard - Version 2.1 - BugFixes
-- added jquery datepicker to history selection (wasn't working in IE).
-- added jquery datepicker to inverter page
-- added some text information. to create history views, you need to update the history table first.
- 
-update from 2.0 to 2.1? 
-- just upload all the files again (except the directory INSTALL and inc)
-
-# Enecsys_Dashboard - Version 2.0 - Intro
-is based on the need for a Solar Dashboard to monitor on a local server. to monitor the enecsys inverters 
-It needs to run on the same host where the the script of Omoerbeek is running.
-
-Forum Topic on Tweakers: http://gathering.tweakers.net/forum/list_messages/1627615/0
-
-Demo: not yet available (check screenshots in INSTALL directory)
-
-#Note:
-/*
- * Copyright (c) 2015 Jeroen van Marion <jeroen@vanmarion.nl>
- *
- * Permission to use, copy, modify, and distribute this software for any
- * purpose without fee is hereby granted, provided that the above
- * copyright notice and this permission notice appear in all copies.
- *
- * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
- * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
- * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
- * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
- * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
- * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
- * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
- */
+#Tweakers community
+https://gathering.tweakers.net/forum/list_messages/1627615/0
