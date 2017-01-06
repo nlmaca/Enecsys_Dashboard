@@ -1,4 +1,14 @@
 
+#hotfix january 6, 2017
+dont see any backup files in your dashboard?
+Menu: System > Backups
+
+then apply this fix on the ssh terminal, where WEBDIRECTORY should be changed to where you have installed your dashboard
+for example: if your dashboard url is: http://10.0.2.5/enecsys_solar
+then webdirectory = enecsys_solar
+
+sudo mkdir /var/www/html/WEBDIRECTORY/backups/files/
+
 #Update
 I completely rebuild version 2.3. This resulted in version 3.0. I'm pretty stoked about it. I hope you like it just as i like it:D 
 
