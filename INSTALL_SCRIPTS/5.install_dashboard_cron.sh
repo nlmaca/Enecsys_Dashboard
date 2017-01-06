@@ -57,7 +57,7 @@ else
   sudo chmod 777 /var/www/html/$1/include/config.php
 
   #git doesnt create empty directories in version control. thats why the manual creation of it
-  #sudo mkdir /var/www/html/$1/backups/files/
+  sudo mkdir /var/www/html/$1/backups/files/
   sudo chmod 777 /var/www/html/$1/backups/files
 
   echo "Checking if cronjobs exists for this installation and pi user. If old dashboard cronjobs exists they will be deleted."
