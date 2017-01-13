@@ -4,11 +4,10 @@ I made a small change in the history > day page. if forgot to set the variable f
 You don't have to run this fix when you have installed it after january 13, 2017.
 
 Please apply this hotfix to your rpi.
-Login via ssh on your rpi. 
-follow this command:
-cd /home/pi
-wget http://vanmarion.nl/projects/Enecsys_Dashboard/hotfix/ENEC-hotfix-1.sh
-chmod +x ENEC-hotfix-1.sh
+- Login via ssh on your rpi. 
+- cd /home/pi
+- wget http://vanmarion.nl/projects/Enecsys_Dashboard/hotfix/ENEC-hotfix-1.sh
+- chmod +x ENEC-hotfix-1.sh
 
 After that run it with sudo and as a parameter use the webdirectory where your dashboard is installed (just like you did in the manual).
 if your dashboard url is: http://10.0.2.5/enecsys_solar you should run it like this:
