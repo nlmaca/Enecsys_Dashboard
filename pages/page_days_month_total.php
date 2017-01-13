@@ -58,7 +58,7 @@
     tooltip: {
   	  //headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
      // pointFormat: '<span style="color:{point.color}">{point.name}</span>:<b>{point.y}</b>'
-	  pointFormat: '<span style="color:{point.color}"></span><b>{point.y} kWh</b>'
+	  pointFormat: '<span style="color:{point.color}"></span><b>{point.y} Wh</b>'
     },
     plotOptions: {
 		series: {
@@ -111,7 +111,7 @@
           <div class="dashboard_graph x_panel">
           	<div class="row x_title">
             	<div class="col-md-6">
-                <h3><?php echo $LANG_PAGES_MONTH_TITLE;?> </h3>
+                <h3><?php echo $LANG_PAGES_MONTH_TITLE;?> | <?php echo $getCurrentYear; ?> </h3>
       	      </div>
               <div class="col-md-6">
 	              <div  class="pull-right" style="background: #fff; cursor: pointer; padding: 0px 0px; border: 1px solid #ccc">

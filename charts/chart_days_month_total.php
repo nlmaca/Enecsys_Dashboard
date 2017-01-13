@@ -7,14 +7,14 @@
 		die("Redirecting to ". $DOCUMENT_ROOT . "/index.php");
 	}
 	$month = $_GET['month'];
-	//$year = 2016;
+	$CurrentYear = date("Y");
 
 	$arr 	= array();
 	$arr1	= array();
 	$result = array();
 
 	//get results based on year from GET
-	$query = mysqli_query($connect,"select date_format(ts, '%d-%m') as day, sum(whtotal) as kWh from enecsys_report where date_format(ts, '%m') = $month and year(ts) = 2016 and id = 0 group by day(ts)");
+	$query = mysqli_query($connect,"select date_format(ts, '%d-%m') as day, sum(whtotal) as Wh from enecsys_report where date_format(ts, '%m') = $month and year(ts) = $CurrentYear and id = 0 group by day(ts)");
 	$j = 0;
 	while($row = mysqli_fetch_assoc($query)){
 		//highcharts needs name, but only once, so give a IF condition
@@ -25,7 +25,7 @@
 		}
 		//data for month and whtotal
 		$arr['data'][] = $row['day'];
-		$arr1['data'][] = $row['kWh'];
+		$arr1['data'][] = $row['Wh'];
 	}
 
 	//after get the data for month and kWh, push both of them to an another array called result

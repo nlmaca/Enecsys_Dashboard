@@ -131,7 +131,7 @@
 
 	//Pages page_days_month_total
 	$LANG_PAGES_MONTH_TOTAL_JS_1 = "Totale Dagopbrengst";
-	$LANG_PAGES_MONTH_TOTAL_JS_2 = "Opbrengst kWh";
+	$LANG_PAGES_MONTH_TOTAL_JS_2 = "Opbrengst Wh";
 	$LANG_PAGES_MONTH_TITLE = "Dagopbrengst | Selecteer Maand: ";
 	$LANG_PAGES_MONTH_SELECT = "Selecteer Maand";
 

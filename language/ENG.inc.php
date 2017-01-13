@@ -131,7 +131,7 @@
 
 	//Pages page_days_month_total
 	$LANG_PAGES_MONTH_TOTAL_JS_1 = "Total Daily Output";
-	$LANG_PAGES_MONTH_TOTAL_JS_2 = "Produced kWh";
+	$LANG_PAGES_MONTH_TOTAL_JS_2 = "Produced Wh";
 	$LANG_PAGES_MONTH_TITLE = "Daily output | Select Month: ";
 	$LANG_PAGES_MONTH_SELECT = "Select Month";
 

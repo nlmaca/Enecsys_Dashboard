@@ -1,13 +1,18 @@
 
-#hotfix january 6, 2017
-dont see any backup files in your dashboard?
-Menu: System > Backups
+#hotfix january 13, 2017
+I made a small change in the history > day page. if forgot to set the variable for the current year. And this fix will also check if your backup directory exists.
+You don't have to run this fix when you have installed it after january 13, 2017.
 
-then apply this fix on the ssh terminal, where WEBDIRECTORY should be changed to where you have installed your dashboard
-for example: if your dashboard url is: http://10.0.2.5/enecsys_solar
-then webdirectory = enecsys_solar
+Please apply this hotfix to your rpi.
+Login via ssh on your rpi. 
+follow this command:
+cd /home/pi
+wget http://vanmarion.nl/projects/Enecsys_Dashboard/hotfix/ENEC-hotfix-1.sh
+chmod +x ENEC-hotfix-1.sh
 
-sudo mkdir /var/www/html/WEBDIRECTORY/backups/files/
+After that run it with sudo and as a parameter use the webdirectory where your dashboard is installed (just like you did in the manual).
+if your dashboard url is: http://10.0.2.5/enecsys_solar you should run it like this:
+sudo ./ENEC-hotfix-1.sh WEBDIRECTORY
 
 #Update
 I completely rebuild version 2.3. This resulted in version 3.0. I'm pretty stoked about it. I hope you like it just as i like it:D 
