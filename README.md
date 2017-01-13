@@ -11,7 +11,7 @@ Please apply this hotfix to your rpi.
 
 After that run it with sudo and as a parameter use the webdirectory where your dashboard is installed (just like you did in the manual).
 if your dashboard url is: http://10.0.2.5/enecsys_solar you should run it like this:
-sudo ./ENEC-hotfix-1.sh WEBDIRECTORY
+- sudo ./ENEC-hotfix-1.sh WEBDIRECTORY
 
 #Update
 I completely rebuild version 2.3. This resulted in version 3.0. I'm pretty stoked about it. I hope you like it just as i like it:D 
