@@ -1,3 +1,8 @@
+# 2017/12/11: update Installion files > New Raspbian OS (Stretch)
+- working on new installation files because of new software (Raspbian Stretch, PHP7, etc)
+- version: 4.x
+- status: in progress
+
 # hotfix march 16, 2017
 Fixed based on the issue marked by: https://github.com/nlmaca/Enecsys_Dashboard/issues/1
 The problem was that the main table wasn't cleaned properly. I kind of rebuild the cleaning part.
