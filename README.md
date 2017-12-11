@@ -1,6 +1,9 @@
 # 2017/12/11: update Installion files > New Raspbian OS (Stretch)
-- working on new installation files because of new software (Raspbian Stretch, PHP7, etc)
+- working on new installation files because of new software (Raspbian Stretch, PHP7, mysql, etc)
 - version: 4.x
+- see also: https://github.com/nlmaca/Enecsys_Dashboard/issues/2
+- got notices from several users about this problem. Time for an upgrade
+
 - status: in progress
 
 # hotfix march 16, 2017
