@@ -20,14 +20,14 @@ echo "Here we go"
 echo "Step 1: install php, apache, mysql"
 
 sleep 1
-apt-get -y install apache2 php5 php5-mcrypt php5-mysql php5-curl php5-gd php5-json mysql-server
+apt-get -y install apache2 php php-mcrypt php-mysql php-curl php-gd php-json mysql-server
 
 sleep 2
 echo "-------------------------------------------------------------"
 echo "Step 2: enable php module mcrypt"
 
 sleep 1
-php5enmod mcrypt
+phpenmod mcrypt
 
 sleep 2
 echo "-------------------------------------------------------------"

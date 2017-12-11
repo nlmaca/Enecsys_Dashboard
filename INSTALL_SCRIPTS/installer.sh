@@ -4,7 +4,7 @@
 
 cd /home/pi
 
-BASEURL=https://raw.githubusercontent.com/nlmaca/Enecsys_Dashboard/master/INSTALL_SCRIPTS
+BASEURL=https://raw.githubusercontent.com/nlmaca/Enecsys_Dashboard/develop/INSTALL_SCRIPTS
 #BASEURL=http://vanmarion.nl/rpi/INSTALL_SCRIPTS
 
 wget $BASEURL/1.sudo_static_ip.sh
