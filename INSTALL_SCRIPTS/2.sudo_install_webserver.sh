@@ -20,7 +20,7 @@ echo "Here we go"
 echo "Step 1: install php, apache, mysql"
 
 sleep 1
-sudo apt-get -y install apache2 php php-mcrypt php-mysql php-curl php-gd php-json mysql-server expect
+sudo apt-get -y install apache2 php php-mcrypt php-mysql php-curl php-gd php-json mysql-server 
 
 sleep 2
 echo "-------------------------------------------------------------"
@@ -29,13 +29,11 @@ echo "Step 2: enable php module mcrypt"
 sleep 1
 sudo phpenmod mcrypt
 
-# testing
-# sudo apt-get remove --purge mysql\*
-# sudo apt-get remove --purge php\*
-# sudo apt-get remove --purge apache2
-
 echo "mariaDB will now be secured. When this installation is done the new Mysql ROOT password will be displayed. Make sure to copy it!!"
-sleep 5
+
+sleep 2
+#install temp package
+aptitude -y install expect
 ## added. Maria doesnt set password for root
 ## change this
 mysql -u root -e "USE mysql; update user set plugin='' where User='root'; flush privileges;"
@@ -43,15 +41,21 @@ mysql -u root -e "USE mysql; update user set plugin='' where User='root'; flush 
 #random password generation based on openssl
 RANDOM_MYSQL_PASS="$(openssl rand -hex 10)"
 #now start secure installation to finish the process. automated with answers predefined and random password generation
+MYSQL_CURRENT_PASS=""
 
 MYSQL_ROOT_PASSWORD="$(openssl rand -hex 10)"
+sleep 2
 
 SECURE_MYSQL=$(expect -c "
 set timeout 2
 spawn mysql_secure_installation
 expect \"Enter current password for root (enter for none):\"
-send "\r"
+send \"\r\"
 expect \"Set root password?\"
+send \"y\r\"
+expect \"New password:\"
+send \"$MYSQL_ROOT_PASSWORD\r\"
+expect \"Re-enter new password:\"
 send \"$MYSQL_ROOT_PASSWORD\r\"
 expect \"Remove anonymous users?\"
 send \"y\r\"
@@ -64,11 +68,11 @@ send \"y\r\"
 expect eof
 ")
 
-
 echo "$SECURE_MYSQL"
 
 echo "Delete package expect"
 sleep 2
+#remove package again
 aptitude -y purge expect
 
 ## should result in this when connecting again:
