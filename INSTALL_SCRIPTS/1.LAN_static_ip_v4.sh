@@ -39,5 +39,6 @@ else
  echo ""
  echo ""
  echo "*NOTE*: Settings are added. Reboot your rpi and check if you can connect again to IP:" $IP_ADDRESS "on ssh port: 22"
+ echo "run command: sudo reboot"
 fi
 

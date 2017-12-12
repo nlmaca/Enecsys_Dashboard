@@ -39,10 +39,6 @@ aptitude -y install expect
 mysql -u root -e "USE mysql; update user set plugin='' where User='root'; flush privileges;"
 
 #random password generation based on openssl
-RANDOM_MYSQL_PASS="$(openssl rand -hex 10)"
-#now start secure installation to finish the process. automated with answers predefined and random password generation
-MYSQL_CURRENT_PASS=""
-
 MYSQL_ROOT_PASSWORD="$(openssl rand -hex 10)"
 sleep 2
 
