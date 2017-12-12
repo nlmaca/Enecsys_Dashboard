@@ -11,8 +11,8 @@
 ###########################################################################
 ## // SET DOWNLOAD LINK + FILE ##
 DOWNLOAD=https://github.com/nlmaca/Enecsys_Dashboard/archive/
-ZIPFILE=master.zip
-ZIPNAME=Enecsys_Dashboard-master
+ZIPFILE=develop.zip
+ZIPNAME=Enecsys_Dashboard-develop
 
 if [ -z "$1" ]
 then
