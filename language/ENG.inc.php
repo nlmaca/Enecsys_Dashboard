@@ -203,7 +203,7 @@
 	$LANG_RESTART_DESCRIPTION = "Description";
 
 	//Pages settings_e2pv
-	$LANG_PAGES_E2PV_TOOLTIP_VERBOSE = "Set VERBOSE to 1 if you want the script to print details on what it is doing";
+	$LANG_PAGES_E2PV_TOOLTIP_VERBOSE = "VERBOSE is used for debugging. This is not supported (yet)";
 	$LANG_PAGES_E2PV_TOOLTIP_IDCOUNT = "Total Inverters needs to be set to the number of inverters you have.";
 	$LANG_PAGES_E2PV_TOOLTIP_MODE = "This Dashboard only supports AGGREGATE Mode";
 	$LANG_PAGES_E2PV_TOOLTIP_LIFETIME = "LIFETIME should be set to 0 if your lifetime kWh values produce wrong values. That seems to happen in some installations when panels are producing close to their maximum capacity. Especially duo-inverters seem to have this problem";

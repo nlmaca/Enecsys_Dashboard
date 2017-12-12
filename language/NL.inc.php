@@ -203,7 +203,7 @@
 	$LANG_RESTART_DESCRIPTION = "Omschrijving";
 
 	//Pages settings_e2pv
-	$LANG_PAGES_E2PV_TOOLTIP_VERBOSE = "Zet VERBOSE op 1to 1 if you want the script to print details on what it is doing";
+	$LANG_PAGES_E2PV_TOOLTIP_VERBOSE = "VERBOSE is voor foutopsporing. Dit wordt (nog) niet ondersteund";
 	$LANG_PAGES_E2PV_TOOLTIP_IDCOUNT = "Geef het totale aantal omvormers op.";
 	$LANG_PAGES_E2PV_TOOLTIP_MODE = "Dit Dashboard ondersteunt alleen AGGREGATE Mode";
 	$LANG_PAGES_E2PV_TOOLTIP_LIFETIME = "Indien PVOutput verkeerde waardes laat zien zet dan LIFETIME op 0. Dit gebeurt voornamelijk in situaties waarbij de panelen tegen hun maximale capaciteit zitten. Dit speelt oornamelijk bij duo omvormers";

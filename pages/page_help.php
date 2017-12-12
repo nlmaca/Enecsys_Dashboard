@@ -44,6 +44,14 @@
 						</a>
 						<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 							<div class="panel-body">
+							<b>Updated 2017, december 12</b>
+  								I made an update (Version 4.0), because of the new image of Raspbian (Stretch). This resulted in broken installer scripts and outdated php code in the dashboard.
+								So i decided to rebuild some scripts and checking the code. Maybe in the near future i will do some minor changes, but so far i don't get complaints
+								from users about non-working software, so i leave it as it is now.
+								<br><br>
+
+
+
 								I would like to state first that i had a lot of fun building this. It started out to build it for my dad, after that i had so many ideas and decided
 								to build a complete dashboard for it. I have no idea how many hours i totally spend on this project (over 100 hours at least). <br />
 								It didn't matter how long it took:D<br /><br />
