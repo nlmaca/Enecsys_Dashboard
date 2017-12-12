@@ -1,10 +1,18 @@
-# 2017/12/11: update Installion files > New Raspbian OS (Stretch)
+# 2017/12/11: update Installation files > New Raspbian OS (Stretch)
 - Changes: 
-- new static ipadress installer script (only LAN). Functionality change in Stretch
+- new static ipadress installer script (only LAN). Functionality change in Stretch. It will set your current ip as default. I removed the questions part. It was unclear for some users
+- Optimized for Raspbian Stretch, now uses MariaDB. 
+- Rebuild webinstaller, automatic generation of new MySQL root password and secure of MariaDB
+- updated installation of php 7
+- updated installation manual (pdf)
 - working on new installation files because of new software (Raspbian Stretch, PHP7, mysql, etc)
-- see also: https://github.com/nlmaca/Enecsys_Dashboard/issues/2
-- got notices from several users about this problem. Time for an upgrade
 
+- Issue(s) solved: 
+- https://github.com/nlmaca/Enecsys_Dashboard/issues/2
+- got notices from several users about installation errors.
+
+- TODO: if you have a current database backup from version 3.0 and you want to migrate to V4.0 you need to be able to import your current DB to the new setup.
+- no functionality changed in the dashboard, so migration should work. Migration script needed
 
 
 # hotfix march 16, 2017
