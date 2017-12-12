@@ -75,7 +75,6 @@ aptitude -y purge expect
 ## pi@raspberrypi:~ $ sudo mysql -u root
 ## ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
 
-
 sleep 2
 echo "-------------------------------------------------------------"
 echo "Step 3: restart apache2"

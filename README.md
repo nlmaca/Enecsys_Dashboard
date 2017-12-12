@@ -1,4 +1,4 @@
-# 2017/12/11: update Installation files > New Raspbian OS (Stretch)
+# 2017/12/12: update Installation files > New Raspbian OS (Stretch)
 - Changes: 
 - new static ipadress installer script (only LAN). Functionality change in Stretch. It will set your current ip as default. I removed the questions part. It was unclear for some users
 - Optimized for Raspbian Stretch, now uses MariaDB. 
