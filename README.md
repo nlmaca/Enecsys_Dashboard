@@ -11,7 +11,7 @@
 - https://github.com/nlmaca/Enecsys_Dashboard/issues/2
 - got notices from several users about installation errors.
 
-- TODO: if you have a current database backup from version 3.0 and you want to migrate to V4.0 you need to be able to import your current DB to the new setup.
+- Maybe: TODO: if you have a current database backup from version 3.0 and you want to migrate to V4.0 you need to be able to import your current DB to the new setup.
 - no functionality changed in the dashboard, so migration should work. Migration script needed
 
 
