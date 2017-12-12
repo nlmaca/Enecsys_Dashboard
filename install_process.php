@@ -63,7 +63,7 @@ switch($step){
     default:
     step_1();
 }
-
+// step 1
 function step_1(){
   	if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['agree'])){
         header('Location: install_process.php?step=2');
@@ -86,7 +86,7 @@ function step_1(){
 	echo "</div></div></div>";
 
 }
-
+// step 2
 function step_2(){
     if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['pre_error'] ==''){
       	header('Location: install_process.php?step=3');
@@ -98,21 +98,16 @@ function step_2(){
     if (phpversion() < '5.3') {
       	$pre_error = 'You need to use PHP5.3 or above for the dashboard!<br />';
     }
-    if (!extension_loaded('mysql')) {
-		$pre_error .= 'MySQL extension needs to be loaded for our site to work!<br />';
-    }
-    if (!is_writable('include/config.php')) {
+      if (!is_writable('include/config.php')) {
     	$pre_error .= 'include/config.php needs to be writable for our site to be installed!';
     }
 	echo "<div class='right_col' role='main'><div class=''><div class='x_content'>";
 	echo "<h3>Step 2:</h3>";
 	echo "<p>check if you match the requirements.<br></p>";
 	echo "<table width='100%'>
-		<tr><td><b>PHP version</b></td><td><b>Mysql available</b></td><td><b>Config writable</b></td></tr>
+		<tr><td><b>PHP version</b></td><td><b>Config writable</b></td></tr>
 		<tr><td>";
 	echo (phpversion() >= '5.3') ? 'Ok' : 'Not Ok';
-	echo "</td><td>";
-	echo extension_loaded('mysql') ? 'Ok' : 'Not Ok';
 	echo "</td><td>";
 	echo is_writable('include/config.php') ? '<font color="#00e600">Writable</font>' : '<font color="red">Unwritable - set 777 to include/config.php</font>';
 	echo "</td></tr></table>
@@ -123,6 +118,7 @@ function step_2(){
 	echo "</div></div></div>";
 }
 
+// step 3
 function step_3(){
     if (isset($_POST['submit']) && $_POST['submit']=="Install!") {
       	$database_host=isset($_POST['database_host'])?$_POST['database_host']:"";

@@ -17,7 +17,7 @@ ZIPNAME=Enecsys_Dashboard-master
 if [ -z "$1" ]
 then
   echo "You forgot to set the webdirectory. Run again with the webdirectory where the dashboard is stored"
-  echo "Example: ./5.install_dashboard_cron.sh solar"
+  echo "Example: ./5.install_dashboard_cron.sh enecsys_solar"
 else
 
   #go the pi home directory first
@@ -135,9 +135,9 @@ else
 
   echo "Installation Done."
   echo "Open your browser and go to:"
-  IP=$(echo `ifconfig eth0 2>/dev/null|awk '/inet addr:/ {print $2}'|sed 's/addr://'`)
+  IP_ADDRESS="$(ip addr show eth0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1)"
   directory=/$1/install_process.php
-  result=http://$IP$directory
+  result=http://$IP_ADDRESS$directory
   echo $result
 
 fi
