@@ -4,7 +4,8 @@
 
 cd /home/pi
 
-BASEURL=https://raw.githubusercontent.com/nlmaca/Enecsys_Dashboard/raspbian-buster/installers
+BASEURL=https://raw.githubusercontent.com/nlmaca/Enecsys_Dashboard/raspbian-buster/install_scripts
+
 
 wget $BASEURL/1.LAN_static_ip_v4.sh
 wget $BASEURL/2.sudo_install_webserver.sh
