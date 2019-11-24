@@ -27,18 +27,16 @@ sudo apt-get -y install mariadb-server mariadb-client apache2 php php-mysql php-
 sleep 2
 echo "-------------------------------------------------------------"
 
-echo "mariaDB will now be secured. When this installation is done the new Mysql ROOT password will be displayed. Make sure to copy it!!"
+echo "mariaDB will now be secured"
+echo "When this installation is done the new Mysql ROOT password will be displayed. Make sure to copy it!!"
 
 sleep 2
 # nov: 2019 / updated command
 # install temp package
-apt -y install expect
+sudo apt -y install expect
 
-#set a password for mariaDB
-sudo mysql_secure_installation
 
 #random password generation based on openssl
-# example: 4f07815f2d8e7783ada7
 MYSQL_ROOT_PASSWORD="$(openssl rand -hex 10)"
 sleep 2
 
@@ -46,7 +44,7 @@ SECURE_MYSQL=$(expect -c "
 set timeout 2
 spawn mysql_secure_installation
 expect \"Enter current password for root (enter for none):\"
-send \"\r\"
+send "\r"
 expect \"Set root password?\"
 send \"y\r\"
 expect \"New password:\"
@@ -71,10 +69,6 @@ sleep 2
 # nov: 2019 / updated command
 #remove package again
 sudo apt -y purge expect
-
-## should result in this when connecting again:
-## pi@raspberrypi:~ $ sudo mysql -u root
-## ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
 
 sleep 2
 echo "-------------------------------------------------------------"
