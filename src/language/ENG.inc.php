@@ -12,7 +12,7 @@
 	$LANG_LOGIN_USERNAME = "Username";
 	$LANG_LOGIN_PASSWORD = "Password";
 	$LANG_LOGIN_USER_WELCOME = "Welcome back,";
-	$LANG_LOGIN_FORM = "Login Form";
+	$LANG_LOGIN_FORM = "Login";
 
 	//SideBarMenu
 	$LANG_SIDEBAR_TITLE = "Enecsys Solar";
@@ -345,7 +345,6 @@
 	$LANG_CHART_TABLE_INVERTER_M_T_4 = "Avg temp";
 
 	//Footer
-	$LANG_FOOTER_COPY = "2016 Enecsys Solar 3.0";
 	$LANG_FOOTER_AUTHOR = "Author: J. van Marion";
 
 	$LANG_PAGES_HELP_BLOCK_2_TITLE = "Settings E2PV";

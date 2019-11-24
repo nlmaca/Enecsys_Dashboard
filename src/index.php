@@ -92,7 +92,7 @@ if(!empty($_POST)){
                   <i class="fa fa-th" style="font-size: 26px;"></i>
                   <a style="font-size: 26px;" href="pages/page_live_total.php"><u><?php echo $LANG_DASHBOARD_TITLE; ?></u></a>
                 </h1>
-                <p><?php echo $LANG_FOOTER_COPY;?> <br /><?php echo $LANG_FOOTER_AUTHOR;?></p>
+                <p><?php echo $LANG_FOOTER_AUTHOR;?></p>
               </div>
             </div>
           </form>

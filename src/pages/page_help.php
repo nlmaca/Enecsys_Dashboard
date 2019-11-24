@@ -44,6 +44,9 @@
 						</a>
 						<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 							<div class="panel-body">
+							<b>Updated 2019, november 25</b>
+								  Got several requests that the scripts didn't work anymore for Raspbian Buster, so i decided to upgrade the installers. 
+								  <br><br>
 							<b>Updated 2017, december 12</b>
   								I made an update (Version 4.0), because of the new image of Raspbian (Stretch). This resulted in broken installer scripts and outdated php code in the dashboard.
 								So i decided to rebuild some scripts and checking the code. Maybe in the near future i will do some minor changes, but so far i don't get complaints
