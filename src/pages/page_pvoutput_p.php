@@ -7,23 +7,21 @@
 		header("Location: ". $DOCUMENT_ROOT . "/index.php");
 	    die("Redirecting to ". $DOCUMENT_ROOT . "/index.php");
 	}
-
-	?>
+?>
 
 <?php
-$PVoutput = mysqli_query($connect,"select pvoutput_team_id, pvoutput_team_name from system_settings");
+$PVoutput = mysqli_query($connect,"select pvoutput_id, pvoutput_sys_id from system_settings");
 if ($PVoutput->num_rows > 0) {
 	while($row=mysqli_fetch_array($PVoutput)){
-		$PvTeamId = $row['pvoutput_team_id'];
-		$PvTeamName = $row['pvoutput_team_name'];
+		$PvId = $row['pvoutput_id'];
+		$PvSystemId = $row['pvoutput_sys_id'];
 	}
 }
 else {
-	$PvTeamId = 0;
-	$PvTeamName = 0;
+	$PvId = 0;
+	$PvSystemId = 0;
 }
 ?>
-
 
 </head>
 <body class="nav-md">
@@ -50,7 +48,7 @@ else {
 					<div class="col-md-12 col-sm-12 col-xs-12">
 						<div class="x_panel">
 							<div class="x_title">
-								<h2><?php echo $LANG_PAGES_PVOUTPUT_T_TITLE . $PvTeamName . $LANG_PAGES_PVOUTPUT_T_TEAMID . $PvTeamId; ?></small></h2>
+								<h2><?php echo $LANG_PAGES_PVOUTPUT_P_TITLE . $PvId . $LANG_PAGES_PVOUTPUT_P_SYSID . $PvSystemId; ?> </small></h2>
 								<ul class="nav navbar-right panel_toolbox">
 									<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
 									<li><a class="close-link"><i class="fa fa-close"></i></a></li>
@@ -59,7 +57,7 @@ else {
 							</div>
 							<div class="x_content">
                 <div class="embed-responsive embed-responsive-16by9">
-	                <iframe class="embed-responsive-item" src="http://www.pvoutput.org/ladder.jsp?tid=<?php echo $PvTeamId;?>"></iframe>
+	                <iframe class="embed-responsive-item" src="https://www.pvoutput.org/list.jsp?id=<?php echo $PvId; ?>&sid=<?php echo $PvSystemId; ?>"></iframe>
 	              </div>
 							</div>
 						</div>

@@ -8,8 +8,7 @@
 #delete installation files
 sudo rm -rf /var/www/html/$1/install_process.php
 
-sudo rm -rf /var/www/html/$1/INSTALL
-sudo rm -rf /var/www/html/$1/INSTALL_SCRIPTS
+sudo rm -rf /var/www/html/$1/create_tables.sql
 
 echo "Cleanup done. You can logout and manage the rest in the dashboard. Have fun:D"
 

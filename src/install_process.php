@@ -137,7 +137,7 @@ function step_3(){
            	if (!$connect) {
           		die("Connection failed: " . mysqli_connect_error());
            	}
-           	$file ='INSTALL/create_tables.sql';
+           	$file ='create_tables.sql';
            	if ($sql = file($file)) {
            		$query = '';
            		foreach($sql as $line) {

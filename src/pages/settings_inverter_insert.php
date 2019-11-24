@@ -25,8 +25,6 @@ if(empty($_SESSION['user'])) {
 		</div>
 	</div>
 	<!-- /top navigation -->
-	<!-- page content -->
-<!-- start form submit -->
 
 <?php
 //inverter insert

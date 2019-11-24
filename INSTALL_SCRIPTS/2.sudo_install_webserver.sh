@@ -20,25 +20,25 @@ echo "Here we go"
 echo "Step 1: install php, apache, mysql"
 
 sleep 1
-sudo apt-get -y install apache2 php php-mcrypt php-mysql php-curl php-gd php-json mysql-server 
+# nov: 2019 / installation of php 7.3.11 (current stable)
+# nov: 2019 / changed mysql-server > mariadb-server, mysql-client > mariadb-client, removed mcript
+sudo apt-get -y install mariadb-server mariadb-client apache2 php php-mysql php-curl php-gd php-json
 
 sleep 2
 echo "-------------------------------------------------------------"
-echo "Step 2: enable php module mcrypt"
-
-sleep 1
-sudo phpenmod mcrypt
 
 echo "mariaDB will now be secured. When this installation is done the new Mysql ROOT password will be displayed. Make sure to copy it!!"
 
 sleep 2
-#install temp package
-aptitude -y install expect
-## added. Maria doesnt set password for root
-## change this
-mysql -u root -e "USE mysql; update user set plugin='' where User='root'; flush privileges;"
+# nov: 2019 / updated command
+# install temp package
+apt -y install expect
+
+#set a password for mariaDB
+sudo mysql_secure_installation
 
 #random password generation based on openssl
+# example: 4f07815f2d8e7783ada7
 MYSQL_ROOT_PASSWORD="$(openssl rand -hex 10)"
 sleep 2
 
@@ -68,8 +68,9 @@ echo "$SECURE_MYSQL"
 
 echo "Delete package expect"
 sleep 2
+# nov: 2019 / updated command
 #remove package again
-aptitude -y purge expect
+sudo apt -y purge expect
 
 ## should result in this when connecting again:
 ## pi@raspberrypi:~ $ sudo mysql -u root

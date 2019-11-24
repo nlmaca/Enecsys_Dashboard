@@ -2,6 +2,7 @@
 	require("../include/config.php");
 	/*
 	delete all backup files older than 4 days
+	sudo needed, because on RPI files are placed under root user in /var/www
 	*/
 	//---------------------------------------------------------------
 	//only allowed to run this script from commandline (cronjob)

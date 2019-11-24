@@ -11,8 +11,8 @@
 ###########################################################################
 ## // SET DOWNLOAD LINK + FILE ##
 DOWNLOAD=https://github.com/nlmaca/Enecsys_Dashboard/archive/
-ZIPFILE=master.zip
-ZIPNAME=Enecsys_Dashboard-master
+ZIPFILE=raspbian-buster.zip
+ZIPNAME=raspbian-buster
 
 if [ -z "$1" ]
 then
@@ -49,7 +49,7 @@ else
   sleep 1
 
   sudo mkdir /var/www/html/$1
-  cd $ZIPNAME
+  cd $ZIPNAME/src
   sudo cp -R * /var/www/html/$1
 
   sleep 2

@@ -5,7 +5,7 @@
 	*/
 
 	//System version: 3.0
-	$LANG_DASHBOARD_TITLE = 'Enecsys Solar 4.0';
+	$LANG_DASHBOARD_TITLE = 'Enecsys Solar 4.1.0';
 
 	//login
 	$LANG_LOGIN = "Login";

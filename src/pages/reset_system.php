@@ -46,9 +46,9 @@ set_time_limit(0);
 							</div>
 							<div class="x_content">
 								<?php
-								  $OS = exec('lsb_release -si');
-								  if ($OS == 'Raspbian') {
-								    echo $LANG_RESTART_OS . $OS . "<br />";
+									if (`which reboot`) {
+								  	$OS = exec('lsb_release -si');
+								  	echo $LANG_RESTART_OS . $OS . "<br />";
 										echo "<table class='table table-striped responsive-utilities jambo_table bulk_action'>
 											<thead>
 												<tr class='headings'>
@@ -67,10 +67,7 @@ set_time_limit(0);
 								    <input type='hidden' name='reset_allowed' value='2'>
 								    </form></td><td>" . $LANG_RESTART_NOTE_SHUTDOWN . "</td></tr></table>";
 								  }
-								  else {
-										echo $LANG_RESTART_OS . $OS . "<br />";
-								    echo $LANG_RESTART_NOTE_NONE;
-								  }
+								 
 								?>
 							</div>
 						</div>
