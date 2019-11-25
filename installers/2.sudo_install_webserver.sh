@@ -20,12 +20,12 @@ echo "Here we go"
 echo "Step 1: install php, apache, mysql"
 
 sleep 1
-# nov: 2019 / installation of php 7.3.11 (current stable)
-# nov: 2019 / changed mysql-server > mariadb-server, mysql-client > mariadb-client, removed mcript
 sudo apt-get -y install mariadb-server mariadb-client apache2 php php-mysql php-curl php-gd php-json
 
 sleep 2
 echo "-------------------------------------------------------------"
+#install temp package
+apt-get -y install expect
 
 echo "mariaDB will now be secured. When this installation is done the new Mysql ROOT password will be displayed. Make sure to copy it!!"
 
@@ -34,14 +34,37 @@ sleep 2
 #set a password for mariaDB
 MYSQL_ROOT_PASSWORD="$(openssl rand -hex 10)"
 echo "-------------------------------------------------------------"
-echo "The new root password: $MYSQL_ROOT_PASSWORD"
+echo "The new root password: $MYSQL_ROOT_PASSWORD "
 echo "-------------------------------------------------------------"
+sudo mysql -e "USE mysql; update user set plugin='' where User='root'; flush privileges;"
 
-sleep 2 
-echo "Copy this password (and save it!!) and use it in the next steps:"
-echo "Answer all questions with Y and set the root password when asked"
-echo "-------------------------------------------------------------"
-sudo mysql_secure_installation
+SECURE_MYSQL=$(expect -c "
+set timeout 2
+spawn mysql_secure_installation
+expect \"Enter current password for root (enter for none):\"
+send \"\r\"
+expect \"Set root password?\"
+send \"y\r\"
+expect \"New password:\"
+send \"$MYSQL_ROOT_PASSWORD\r\"
+expect \"Re-enter new password:\"
+send \"$MYSQL_ROOT_PASSWORD\r\"
+expect \"Remove anonymous users?\"
+send \"y\r\"
+expect \"Disallow root login remotely?\"
+send \"y\r\"
+expect \"Remove test database and access to it?\"
+send \"y\r\"
+expect \"Reload privilege tables now?\"
+send \"y\r\"
+expect eof
+")
+
+echo "$SECURE_MYSQL"
+
+sleep 2
+#remove package again
+apt -y purge expect
 
 sleep 2
 
@@ -75,4 +98,12 @@ echo "-------------------------------------------------------------"
 echo "Just a reminder. Did you save the Root password?"
 echo "Copy this new Mysql Root password and keep it in a safe place:"
 echo $MYSQL_ROOT_PASSWORD
+echo ""
+echo ""
 echo "Installation Done! > Go to script No 3 "
+echo ""
+echo ""
+
+
+cfddb4cadb919afa0e0b
+cfddb4cadb919afa0e0b
