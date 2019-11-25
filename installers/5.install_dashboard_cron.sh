@@ -12,7 +12,7 @@
 ## // SET DOWNLOAD LINK + FILE ##
 DOWNLOAD=https://github.com/nlmaca/Enecsys_Dashboard/archive/
 ZIPFILE=raspbian-buster.zip
-ZIPNAME=raspbian-buster
+ZIPNAME=Enecsys_Dashboard-raspbian-buster
 
 if [ -z "$1" ]
 then
