@@ -4,7 +4,7 @@
 
 cd /home/pi
 
-BASEURL=https://raw.githubusercontent.com/nlmaca/Enecsys_Dashboard/raspbian-buster/install_scripts
+BASEURL=https://raw.githubusercontent.com/nlmaca/Enecsys_Dashboard/raspbian-buster/installers
 
 
 wget $BASEURL/1.LAN_static_ip_v4.sh

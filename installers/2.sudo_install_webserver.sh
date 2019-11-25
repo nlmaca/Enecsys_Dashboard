@@ -35,36 +35,15 @@ sleep 2
 apt -y install expect
 
 #set a password for mariaDB
+MYSQL_ROOT_PASSWORD="$(openssl rand -hex 10)"
+echo "-------------------------------------------------------------"
+echo "Copy this password (and save it!!) and use it in the next steps: $MYSQL_ROOT_PASSWORD"
+echo "Answer all questions with Y and set the root password when asked"
+echo "-------------------------------------------------------------"
 sudo mysql_secure_installation
 
-#random password generation based on openssl
-# example: 4f07815f2d8e7783ada7
-MYSQL_ROOT_PASSWORD="$(openssl rand -hex 10)"
 sleep 2
 
-SECURE_MYSQL=$(expect -c "
-set timeout 2
-spawn mysql_secure_installation
-expect \"Enter current password for root (enter for none):\"
-send \"\r\"
-expect \"Set root password?\"
-send \"y\r\"
-expect \"New password:\"
-send \"$MYSQL_ROOT_PASSWORD\r\"
-expect \"Re-enter new password:\"
-send \"$MYSQL_ROOT_PASSWORD\r\"
-expect \"Remove anonymous users?\"
-send \"y\r\"
-expect \"Disallow root login remotely?\"
-send \"y\r\"
-expect \"Remove test database and access to it?\"
-send \"y\r\"
-expect \"Reload privilege tables now?\"
-send \"y\r\"
-expect eof
-")
-
-echo "$SECURE_MYSQL"
 
 echo "Delete package expect"
 sleep 2
@@ -104,6 +83,7 @@ sudo service mysql restart
 
 sleep 2
 echo "-------------------------------------------------------------"
+echo "Just a reminder. Did you save the Root password?"
 echo "Copy this new Mysql Root password and keep it in a safe place:"
 echo $MYSQL_ROOT_PASSWORD
 echo "Installation Done! > Go to script No 3 "
