@@ -30,9 +30,6 @@ echo "-------------------------------------------------------------"
 echo "mariaDB will now be secured. When this installation is done the new Mysql ROOT password will be displayed. Make sure to copy it!!"
 
 sleep 2
-# nov: 2019 / updated command
-# install temp package
-apt -y install expect
 
 #set a password for mariaDB
 MYSQL_ROOT_PASSWORD="$(openssl rand -hex 10)"
@@ -44,18 +41,6 @@ sudo mysql_secure_installation
 
 sleep 2
 
-
-echo "Delete package expect"
-sleep 2
-# nov: 2019 / updated command
-#remove package again
-sudo apt -y purge expect
-
-## should result in this when connecting again:
-## pi@raspberrypi:~ $ sudo mysql -u root
-## ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
-
-sleep 2
 echo "-------------------------------------------------------------"
 echo "Step 3: restart apache2"
 sleep 1
