@@ -1,5 +1,5 @@
 #!/bin/bash
-# script name: sudo_install_webserver.sh
+# run as: sudo ./2.sudo_install_webserver.sh
 ##
 echo "Update system first"
 sleep 1
@@ -34,7 +34,11 @@ sleep 2
 #set a password for mariaDB
 MYSQL_ROOT_PASSWORD="$(openssl rand -hex 10)"
 echo "-------------------------------------------------------------"
-echo "Copy this password (and save it!!) and use it in the next steps: $MYSQL_ROOT_PASSWORD"
+echo "The new root password: $MYSQL_ROOT_PASSWORD"
+echo "-------------------------------------------------------------"
+
+sleep 2 
+echo "Copy this password (and save it!!) and use it in the next steps:"
 echo "Answer all questions with Y and set the root password when asked"
 echo "-------------------------------------------------------------"
 sudo mysql_secure_installation
