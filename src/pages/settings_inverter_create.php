@@ -7,6 +7,10 @@ if(empty($_SESSION['user'])) {
     die("Redirecting to ". $DOCUMENT_ROOT . "/index.php");
 }
 
+//set currentdate
+$CurDate = date('Y-m-d H:i:s');
+
+
 ?>
 
 </head>
@@ -33,7 +37,7 @@ if(empty($_SESSION['user'])) {
         <div class="item form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number"><?php echo $LANG_PAGES_INVERTER;?> <span class="required">*</span></label>
           <div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="number" id="inverter" name="inverter_serial" required="required" data-validate-minmax="9" class="form-control col-md-7 col-xs-12">
+              <input type="number" id="inverter" name="inverter_serial" required="required" data-validate-minmax="9" placeholder="number starts with a 1" class="form-control col-md-7 col-xs-12">
           </div>
         </div>
         <div class="form-group">
@@ -57,13 +61,13 @@ if(empty($_SESSION['user'])) {
         <div class="item form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="occupation"><?php echo $LANG_PAGES_INVERTER_PARTNR;?> </label>
           <div class="col-md-6 col-sm-6 col-xs-12">
-            <input id="parts_nr" type="text" name="parts_nr" data-validate-length-range="0,20" class="form-control col-md-7 col-xs-12">
+            <input id="parts_nr" type="text" name="parts_nr" data-validate-length-range="0,20" value="00000000000" class="form-control col-md-7 col-xs-12">
           </div>
         </div>
         <div class="form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12"><?php echo $LANG_PAGES_INVERTER_BUILD;?> </label>
           <div class="col-md-6 col-sm-6 col-xs-12">
-            <input id="build_date" name="build_date" class="date-picker form-control col-md-7 col-xs-12" type="text">
+            <input id="build_date" name="build_date" value="<?php echo $CurDate;?>" class="date-picker form-control col-md-7 col-xs-12" type="text">
           </div>
         </div>
         <div class="form-group">

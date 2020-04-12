@@ -1,3 +1,7 @@
+# Version 4.2.0 2020 - April/May
+* Release: 2020-04-xx / see releasenotes.md
+* Featurelist: see /FeatureList.md
+
 # Version 4.1.0 2019 - Nov/Dec
 * Release: 2019-11-24 / see releasenotes.md
 
@@ -19,8 +23,7 @@ The reason i choose for a rpi as a platform, is so you don't have to depend on 3
 - Micro(sd) of 8 GB is enough. Don't go further then 32GB, it can cause issues on the rpi (raspberry)
 
 # Installation:
-Open <a href="https://github.com/nlmaca/Enecsys_Dashboard/blob/master/INSTALL/INSTALL_RPI.pdf">INSTALL_RPI.pdf</a> from the INSTALL directory
-A video will be created. I will add that in the next update
+Open the INSTALL_RPI.pdf from the /doc directory.
 
 # Support:
 I only support clean RPI installations. if you have other stuff running on your rpi, you are on your own. 

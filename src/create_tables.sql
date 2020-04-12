@@ -107,5 +107,5 @@ PRIMARY KEY(alert_id)
 );
 
 INSERT INTO `alerts` (`alert_id`, `device`, `note_short`, `img_url`, `status`, `last_check`) VALUES
-(1, 'Inverter', 'Inverter Issues!. Check inverters ', '../img/img-inverter.png', 0, '2016-21-31 14:00:00'),
+(1, 'Inverter', 'Inverter Issues!. Check inverters ', '../img/img-inverter.png', 0, now()),
 (2, 'Gateway', 'No Data Input. Check Gateway IP or Reboot Enecsys Gateway', '../img/img-gateway.png', 0, '2016-12-31 15:00:00');

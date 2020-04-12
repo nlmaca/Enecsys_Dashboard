@@ -44,6 +44,10 @@
 						</a>
 						<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 							<div class="panel-body">
+							<b>Update march/april 2020</b>
+							support for Raspbian buster, network installer upgraded and several bugfixes. The readme and releasenotes on the github page will show you all the 
+							details https://github.com/nlmaca/Enecsys_Dashboard.
+							<br><br>
 							<b>Updated 2019, november 25</b>
 								  Got several requests that the scripts didn't work anymore for Raspbian Buster, so i decided to upgrade the installers. 
 								  <br><br>
@@ -406,6 +410,7 @@
 										<li>You haven't set inverters. settings > Inverters </li>
 										<li>No data input. Did you change the Enecsys Gateway to send data to the ipadress of the rpi?</li>
 										<li>Did you reboot after the installation? If not, do it.</li>
+										<li>Even when your Enecsys gateway is showing smilies and you don't see data? Reboot the Enecsys Gateway.</li>
 									</ul>
 								</div>
 							</div>

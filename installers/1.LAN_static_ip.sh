@@ -5,7 +5,11 @@
 ## LICENSE: MIT
 ##
 
-## version  : 4.0
+## Version  : 4.1.1
+## date     : april 8, 2020
+## Changes  : first check for active adapter name. then use that name to retreive the ipadress of that adapter. 
+
+## version  : 4.0.0
 ## language : english
 ## date     : 2017, december 12
 
@@ -15,9 +19,16 @@
 
 ## Get current ipadress (with subnet) and Gateway address (dns will be the same)
 IP_ADDRESS="$(hostname -I)"
-IP_ADDRESS_SUBNET="$(ip addr show eth0 | grep "inet\b" | awk '{print $2}')"
+
+# first get active (internet) network adapter name (could be eth0 but also ens160)
+NAME_ADAPTER="$(ip addr show | awk '/inet.*brd/{print $NF}')"
+
+IP_ADDRESS_SUBNET="$(ip addr show $NAME_ADAPTER | grep "inet\b" | awk '{print $2}')"
+
 GATEWAY="$(route -n | grep 'UG[ \t]' | awk '{print $2}')"
 
+# show single ip only without subnet
+# IP_ADDRESS="$(ip addr show eth0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1)"
 
 NETWORK_FILE=/etc/dhcpcd.conf
 

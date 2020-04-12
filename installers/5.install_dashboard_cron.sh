@@ -1,17 +1,25 @@
 #!/bin/bash
 
+## Version  : 4.1.1
+## date     : april 8, 2020
+## Changes  : updated zipfile name. added check for correct network adapter name in last step
+
+
 ## version	: 3.0
 ## date		: december 10 2016
+
+
 ## features	: download of dashboard and installation of cronjobs
 ## make sure to make the file executable, otherwise you might get an "(" Unexpected error
 ## chmod +x 3.sudo_install_dashboard_cron.sh
+
 ## run as normal pi user:  ./5.install_dashboard_cron.sh webdirectory
-## example:  ./5.install_dashboard_cron.sh solar (will result in /var/www/html/solar)
+## example:  ./5.install_dashboard_cron.sh enecsys_solar (will result in /var/www/html/enecsys_solar)
 
 ###########################################################################
 ## // SET DOWNLOAD LINK + FILE ##
 DOWNLOAD=https://github.com/nlmaca/Enecsys_Dashboard/archive/
-ZIPFILE=Enecsys_Dashboard.zip
+ZIPFILE=master.zip
 ZIPNAME=Enecsys_Dashboard-master
 
 if [ -z "$1" ]
@@ -133,11 +141,16 @@ else
   # temp zip will be deleted to keep things clean
   rm -rf /home/pi/dash_temp/
 
+  # retreive network adapter information to retreive the correct ipaddress
+  NAME_ADAPTER="$(ip addr show | awk '/inet.*brd/{print $NF}')"
+  IP_ADDRESS="$(ip addr show $NAME_ADAPTER | grep "inet\b" | awk '{print $2}' | cut -d/ -f1)"
+
   echo "Installation Done."
   echo "Open your browser and go to:"
-  IP_ADDRESS="$(ip addr show eth0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1)"
-  directory=/$1/install_process.php
-  result=http://$IP_ADDRESS$directory
-  echo $result
+  
+  WEB_DIR=$1/install_process.php
+  WEB_ADDRESS=http://$IP_ADDRESS/$WEB_DIR
+  
+  echo $WEB_ADDRESS
 
 fi

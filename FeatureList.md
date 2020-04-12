@@ -1,29 +1,31 @@
 # version 4.x
+* Update april 8, 2020
 
-* Rebuild for Raspian Buster
+* Done: Rebuild for Raspian Buster
+* Done: new installer scripts for Buster. Updated network adapter functionality.
+* Done: ssh commands changed for Buster
+* Done: change git Repo folder setup
+* Done: update manual (from Word to Wiki page)
+* Done: Renewal of installation scripts
+* Done: latest php 7.x integration
 
-* new installer scripts for Buster. Thx [https://github.com/roy-bongers]
-* ssh commands changed for Buster
-* change git Repo folder setup
-* update manual (from Word to Wiki page)
+# Whishlist
 
+* TODO: input forms error handling (empty fields)
 
-# Whishlist both setups
-* Removal of phpmyadmin
-* Renewal of installation scripts
-* Push notificatons on alerts
-* latest php 7.x integration
-* optimize cronjobs
-* Optimize SQL to PDO
-* input forms error handling (empty fields)
+* TODO: remove install web process. Build into installers. It causes confusion for users. 
+  - create config file (search and replace variables)
+  - import sql tables
+  - after installation move config file to webdirectory
+  - send link to user to login with default credentials
+  - step 6 of installer can be deleted
+* TODO: Optimize SQL to PDO / security
+* TODO: create video of installation on RPI based on manual and install scripts.
 
-* new theme. source: https://github.com/tabler/tabler
-* smtp settings (emailing reports, password reset, alerts)
+* WontFix: email notification. This requires valid credentials and can cause spam if not used correct.
+* WontFix: Push notificatons on alerts
+* Feature: new theme / mobile friendly
 
 # Special requests
-* Dockerized dashboard (Sir Bacon)
-* API access (NLmaca)
-* MQTT (Sir Bacon)
-* Intel Nuc setup (with docker setup) (NLMaca)
-    - Low powerusage
-    - MultiUsage
+* Too Much work for now: Dockerized dashboard (Sir Bacon)
+* Too Much work for now: MQTT (Sir Bacon)
