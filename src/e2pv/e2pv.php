@@ -76,7 +76,7 @@ $last = 0;
 
 /*
  * Compute aggregate info to send to PVOutput
- * See http://pvoutput.org/help.html#api-addstatus
+ * See https://pvoutput.org/help.html#api-addstatus
  */
 function submit($total, $systemid, $apikey) {
   global $VERBOSE, $IDCOUNT, $APIKEY,$SYSTEMID, $LIFETIME, $MODE, $EXTENDED, $AC, $MYSQLHOST, $MYSQLUSER, $MYSQLPASSWORD, $MYSQLDB, $MYSQLPORT;
@@ -150,7 +150,7 @@ function submit($total, $systemid, $apikey) {
   $headers = "Content-type: application/x-www-form-urlencoded\r\n" .
     'X-Pvoutput-Apikey: ' . $apikey . "\r\n" .
     'X-Pvoutput-SystemId: ' . $systemid . "\r\n";
-  $url = 'http://pvoutput.org/service/r2/addstatus.jsp';
+  $url = 'https://pvoutput.org/service/r2/addstatus.jsp';
 
   $data = http_build_query($data, '', '&');
   $ctx = array('http' => array(

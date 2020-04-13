@@ -33,7 +33,7 @@
 			$input = "INSERT INTO enecsys_report (ts, id, whstart, whend, whtotal, avgtemp)
 			SELECT * FROM
 				(select DATE(ts) as InsertDate, id, max(wh), min(wh), max(wh) - min(wh) as total, round(avg(temp),1) as avgTemp
-				from enecsys where DATE(ts) = '$NewDate' group by id)
+				from enecsys where DATE(ts) = '$NewDate' group by id, DATE(ts)
 			AS tmp
 			WHERE NOT EXISTS (SELECT DATE(ts), id FROM enecsys_report WHERE DATE(ts) = '$NewDate')";
 

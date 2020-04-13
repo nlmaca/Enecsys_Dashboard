@@ -5,6 +5,7 @@
 - code improvement: webinstaller
 - renamed installer files
 - documentation updated
+- tested on Buster: 2020-02-13 Release
 
 
 # version 4.1.0
