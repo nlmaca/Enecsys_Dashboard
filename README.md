@@ -1,5 +1,5 @@
 # Version 4.2.0 2020 - April/May
-* Release: 2020-04-xx / see releasenotes.md
+* Release: 2020-04-13 / see releasenotes.md
 * Featurelist: see /FeatureList.md
 
 # Version 4.1.0 2019 - Nov/Dec

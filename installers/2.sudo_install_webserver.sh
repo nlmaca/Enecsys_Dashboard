@@ -33,9 +33,11 @@ sleep 2
 
 #set a password for mariaDB
 MYSQL_ROOT_PASSWORD="$(openssl rand -hex 10)"
-echo "-------------------------------------------------------------"
-echo "The new root password: $MYSQL_ROOT_PASSWORD "
-echo "-------------------------------------------------------------"
+echo "-------------------------------------------------------------" >> /home/pi/db_setup_enecsys.log
+echo "The new root password: $MYSQL_ROOT_PASSWORD " >> /home/pi/db_setup_enecsys.log
+echo "-------------------------------------------------------------" >> /home/pi/db_setup_enecsys.log
+echo "-------------------------------------------------------------" >> /home/pi/db_setup_enecsys.log
+
 sudo mysql -e "USE mysql; update user set plugin='' where User='root'; flush privileges;"
 
 SECURE_MYSQL=$(expect -c "

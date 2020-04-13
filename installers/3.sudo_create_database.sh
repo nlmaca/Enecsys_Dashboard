@@ -48,24 +48,24 @@ if [ $? != "0" ]; then
  # also echo the data to /home/pi/db_<name>_setup.log. If users forget to copy the credentials they can simply check this file.
 else
  echo "------------------------------------------" >> /home/pi/db_setup_enecsys.log
- echo " Database has been created successfully ,save these credentials!! " /home/pi/db_setup_enecsys.log
- echo "------------------------------------------" /home/pi/db_setup_enecsys.log
- echo " Database Info: " /home/pi/db_setup_enecsys.log
- echo "" /home/pi/db_setup_enecsys.log
- echo " Mysql root user    : root" /home/pi/db_setup_enecsys.log
- echo " Mysql root Password: $MYSQL_ROOT_PASSWORD" /home/pi/db_setup_enecsys.log
- echo "" /home/pi/db_setup_enecsys.log
- echo " Database Name      : $ENECSYS_DBNAME" /home/pi/db_setup_enecsys.log
- echo " Database User      : $ENECSYS_USERNAME" /home/pi/db_setup_enecsys.log
- echo " Database Password  : $ENECSYS_DB_PASSWORD" /home/pi/db_setup_enecsys.log
- echo "" /home/pi/db_setup_enecsys.log
- echo "------------------------------------------" /home/pi/db_setup_enecsys.log
+ echo " Database has been created successfully ,save these credentials!! " >> /home/pi/db_setup_enecsys.log
+ echo "------------------------------------------" >> /home/pi/db_setup_enecsys.log
+ echo " Database Info: " >> /home/pi/db_setup_enecsys.log
+ echo "" >> /home/pi/db_setup_enecsys.log
+ echo " Mysql root user    : root" >> /home/pi/db_setup_enecsys.log
+ echo " Mysql root Password: $MYSQL_ROOT_PASSWORD" >> /home/pi/db_setup_enecsys.log
+ echo "" >> /home/pi/db_setup_enecsys.log
+ echo " Database Name      : $ENECSYS_DBNAME" >> /home/pi/db_setup_enecsys.log
+ echo " Database User      : $ENECSYS_USERNAME" >> /home/pi/db_setup_enecsys.log
+ echo " Database Password  : $ENECSYS_DB_PASSWORD" >> /home/pi/db_setup_enecsys.log
+ echo "" >> /home/pi/db_setup_enecsys.log
+ echo "------------------------------------------" >> /home/pi/db_setup_enecsys.log
 
 fi
 
 sleep 2
 echo "-------------------------------------------------------------"
 echo "MySQL Installation Done!"
-echo "The credentials are also saved to /home/pi/db_setup.log"
+echo "The credentials are saved to /home/pi/db_setup.log"
 echo "Save the database credentials on a safe place. You will need them in the install process"
 echo "Start script No 4."

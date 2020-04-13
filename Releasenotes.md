@@ -1,4 +1,3 @@
-
 # Version 4.2.0
 - bugfix: added functionality to retreive active network adapter
 - added logging of database credentials to /home/pi/db_setup_enecsys.log
