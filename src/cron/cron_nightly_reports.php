@@ -33,11 +33,11 @@
 			$input = "INSERT INTO enecsys_report (ts, id, whstart, whend, whtotal, avgtemp)
 			SELECT * FROM
 				(select DATE(ts) as InsertDate, id, max(wh), min(wh), max(wh) - min(wh) as total, round(avg(temp),1) as avgTemp
-				from enecsys where DATE(ts) = '$NewDate' group by id, DATE(ts)
+				from enecsys where DATE(ts) = '$NewDate' group by id, DATE(ts))
 			AS tmp
 			WHERE NOT EXISTS (SELECT DATE(ts), id FROM enecsys_report WHERE DATE(ts) = '$NewDate')";
 
-			$result = mysqli_query($connect, $input) or trigger_error ("Query failed. Error: " . mysqli_error($mysqli), E_USER_ERROR);
+			$result = mysqli_query($connect, $input) or trigger_error ("Query failed. Error: " . mysqli_error($input), E_USER_ERROR);
 			$nrrows = mysqli_affected_rows($connect);
 
 			if ($DEBUG == 1) {	
@@ -57,7 +57,8 @@
 		//When while loop is finished and data is inserted into history table its time to cleanup the main table
 		//First select dates that exists in report table. From there check if data is still available in main table. If yes, delete it.
 		//only delete data that is older then 2 days, because if all data will be deleted, you will get an error in the dashboard about data is missing( older then 12 hours)
-		$GetDate = mysqli_query($connect,"SELECT DATE(ts) AS DelDate FROM enecsys_report WHERE DATE(ts) < DATE_ADD((SELECT MAX(DATE(ts)) FROM enecsys_report), INTERVAL -2 DAY) GROUP BY DelDate DESC ");
+		$GetDate = mysqli_query($connect,"SELECT DATE(ts) AS DelDate FROM enecsys_report 
+			WHERE DATE(ts) < DATE_ADD((SELECT MAX(DATE(ts)) FROM enecsys_report), INTERVAL -2 DAY) GROUP BY DelDate ORDER BY DelDate DESC ");
 		//$GetDate = mysqli_query($connect,"SELECT DATE(ts) as DelDate FROM enecsys_report GROUP BY DelDate ASC");
 		if ($GetDate->num_rows > 0){
 			while($row=mysqli_fetch_array($GetDate)){
@@ -71,7 +72,7 @@
 				
 				if ($DEBUG == 1) {
 					if ($nrrows2 > 0 ) {
-						echo "Date: " . $DelDate . " | " . $nrrows2 . " deleted from table enecsys" . PHP_EOL;
+						echo "Date: " . $DelDate . " | " . $nrrows2 . " records deleted from table enecsys" . PHP_EOL;
 					}
 					else {
 						//no echo
