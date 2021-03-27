@@ -11,7 +11,7 @@
 	$getYear = mysqli_query($connect,"select date_format(ts, '%Y')as year from enecsys_report group by year(ts)");
 	$getMonth = mysqli_query($connect,"select date_format(ts, '%m') as month, date_format(ts, '%b')as month2 from enecsys_report where date_format(ts, '%Y') = $getCurrentYear group by month(ts) ");
 	$getDay = mysqli_query($connect,"select date_format(ts, '%d')as day from enecsys_report group by day(ts)");
-	$getInverter = mysqli_query($connect, "select inverter_serial from inverters");
+	$getInverter = mysqli_query($connect, "select inverter_serial, ivnerter_alias from inverters");
 
 	$allInverters= mysqli_query($connect,"select id, date_format(ts,'%H:%i:%s')as ts, wh, dcpower, max(wh) - min(wh) as until_now, dccurrent, efficiency, acfreq, acvolt, temp, state from enecsys where id <> 0 and date(ts) = curdate() group by id");
 
@@ -106,7 +106,7 @@
 								<option value=""><?php echo $LANG_PAGES_CURRENT_INV;?></option>
 								<?php
 								while($row1 = mysqli_fetch_assoc($getInverter)){
-									echo "<option value = '" . $row1['inverter_serial'] . "'>" . $row1['inverter_serial'] .  "</option>";
+									echo "<option value = '" . $row1['inverter_serial'] . "'>" . $row1['inverter_serial'] . " - " . $row['inverter_alias'] .  "</option>";
 								}?>
 							</select>
 						</div>

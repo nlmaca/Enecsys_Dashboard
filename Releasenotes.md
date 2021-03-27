@@ -1,3 +1,6 @@
+# Version 4.2.1
+- UserRequest: Live status: when selecting inverter now you can also see alias in selectbox.
+
 # Version 4.2.0
 - bugfix: added functionality to retreive active network adapter
 - added logging of database credentials to /home/pi/db_setup_enecsys.log

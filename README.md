@@ -1,3 +1,9 @@
+
+# Version 4.2.1 2021/03/27 - UserRequest
+- UserRequest: Live status: when selecting inverter now you can also see alias in selectbox.
+- see image doc/request_4.2.1.jpg
+- update your setup? Read the Deploy/4.2.1.md
+
 # Version 4.2.0 2020 - April/May
 * Release: 2020-04-13 / see releasenotes.md
 * Featurelist: see /FeatureList.md
