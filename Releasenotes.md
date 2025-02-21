@@ -12,7 +12,7 @@
 - e2pv script working on PHP8.x
 - fixed typo in installscript 3. Logfile was misspelled in the info message. Fixed / db_setup_enecsys.log
 - Updated installer for manual installation
-- Migrated PDF documentation to github page.
+- Migrated PDF documentation to github page
 
 # Version 4.2.1
 

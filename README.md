@@ -20,7 +20,6 @@ The reason i choose for RPI as a platform and not a cloud setup, is so users don
 - Only run the RPI in your local environment!
 - I only support clean RPI installations. Any other setup is not supported. 
 
-
 ## Requirements hardware
 
 ## Hardware
@@ -36,6 +35,10 @@ Hardware costs are around 95 EUR.
 - SD Card reader: https://www.amazon.nl/dp/B081VHSB2V
 
 Example: I have a live setup running since 2015 of which the database isn't larger then 10 MB. 
+
+## Releasenotes
+
+[Releasenotes](Releasenotes.md)
 
 ## Installation
 
