@@ -205,7 +205,7 @@ date_default_timezone_set($TimeZone);
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="database_host">Database Host <span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="database_host" name="database_host" value="localhost" required="required" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="database_host" name="database_host" value="127.0.0.1" required="required" class="form-control col-md-7 col-xs-12">
       </div>
   </div>
 	<div class="form-group">
@@ -221,13 +221,13 @@ date_default_timezone_set($TimeZone);
       </div>
   </div>
 	<div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="database_password">Database Password <span class="required">*</span></label>
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="database_password">Database User Password <span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
       <input type="text" id="database_password" name="database_password" required="required" class="form-control col-md-7 col-xs-12">
     </div>
   </div>
 	<div>
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="directory">directory <span class="required">*</span></label>
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="directory">Directory <span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
         <input type="text" id="directory" name="directory" required="required" value="<?php echo basename(__DIR__);?>" readonly class="form-control col-md-7 col-xs-12">
       </div>

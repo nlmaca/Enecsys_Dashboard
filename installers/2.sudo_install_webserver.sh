@@ -4,12 +4,12 @@
 
 echo "Update system first"
 sleep 1
-sudo apt-get update
+sudo apt update
 sleep 1
 echo "-------------------------------------------------------------"
 echo "Install unzip"
 sleep 1
-sudo apt-get -y install unzip
+sudo apt -y install unzip
 
 sleep 2
 

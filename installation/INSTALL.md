@@ -205,7 +205,7 @@ Pasting on commandline can be done with rightclick.
 Login to the RPI via SSH (Putty) and run these commands:
 
 ```
-sudo apt update && apt upgrade -y
+sudo apt update && sudo apt upgrade -y
 ```
 This can take some time, but you will see a progressbar in the bottom. 
 
@@ -255,6 +255,12 @@ Run this command with sudo (admin privileges)
 cd /home/pi
 
 sudo bash 1.sudo_static_ip.sh
+```
+
+Reboot the RPI after this so we can verify that we can connect to it to the static IP address. Run command:
+
+```
+sudo reboot
 ```
 
 ### Install webserver
@@ -327,7 +333,7 @@ cd /home/pi
 bash 5.install_dashboard_cron.sh enecys_solar
 ```
 
-When done, you will something like this. In this message the url is displayed where you can open the dashboard. Copy the url and open it in your browser.
+When done, you will see something like this. In this message the url is displayed where you can open the dashboard. Copy the url and open it in your browser.
 
 ![webinstaller](images/26.jpg)
 
