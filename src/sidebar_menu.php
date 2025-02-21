@@ -82,10 +82,10 @@
 	<a href="#" target="_blank" data-toggle="tooltip" data-placement="top" title="Bite me :D">
 		<span class="fa fa-linkedin" aria-hidden="true"></span>
 	</a>
-	<a href="http://paypal.me/nlmaca" target="_blank" data-toggle="tooltip" data-placement="top" title="Donate">
+	<a href="https://paypal.me/nlmaca" target="_blank" data-toggle="tooltip" data-placement="top" title="Donate">
 		<span class="fa fa-paypal" aria-hidden="true"></span>
 	</a>
-	<a href="http://www.vanmarion.nl" target="_blank" data-toggle="tooltip" data-placement="top" title="Website">
+	<a href="https://www.vanmarion.nl" target="_blank" data-toggle="tooltip" data-placement="top" title="Website">
 		<span class="fa fa-globe" aria-hidden="true"></span>
 	</a>
 </div>

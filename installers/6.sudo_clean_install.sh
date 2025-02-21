@@ -5,6 +5,8 @@
 ## run from terminal: sudo clean_install.sh WEBDIRECTORY
 ###########################################################################
 
+# run as: sudo
+
 #delete installation files
 sudo rm -rf /var/www/html/$1/install_process.php
 

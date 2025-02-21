@@ -1,43 +1,42 @@
 
-# Version 4.2.1 2021/03/27 - UserRequest
-- UserRequest: Live status: when selecting inverter now you can also see alias in selectbox.
-- see image doc/request_4.2.1.jpg
-- update your setup? Read the Deploy/4.2.1.md
-
-# Version 4.2.0 2020 - April/May
-* Release: 2020-04-13 / see releasenotes.md
-* Featurelist: see /FeatureList.md
-
-# Version 4.1.0 2019 - Nov/Dec
-* Release: 2019-11-24 / see releasenotes.md
-
-
 # Intro
-This dashboard is written in php and is depending on the output of the script from <a href="https://github.com/omoerbeek/e2pv">Omoerbeek</a>. The script is integrated
-in the dashboard, so i tweaked it a bit:D. The previous version was a first setup. From this end i supported quite some users on this project, but it was hard to maintain for users. Thats why
-i decided to build a new dashboard with the e2pv script integrated. I think it worked out pretty fine.
 
-# What does it do?
-If you have Gen1 Enecsys inverters, you are able to use this dashboard. It will give you an indication of your inverters, with long term history. Ad the same time it will
-output the data to your pvoutput, which has a bit more detailed history overall. In my dashboard you can see more on an inverter level.
+Enecys went bankrupt in 2015 and a lot of users were left in the dark and lost monitoring of their PV data. This dashboard will give you all the info you need. 
 
-The reason i choose for a rpi as a platform, is so you don't have to depend on 3rd parties anymore. You control your data. Also the costs are low.
+If you have Enecsys Gen1 inverters, you are able to use this dashboard. It will give you an indication of your inverters, with long term history. Ad the same time it will
+output the data to your pvoutput, which has a bit more detailed history overall. 
 
-# Requirements hardware:
-- Raspberry Pi 2,3,4  with LAN access (not wireless)
-- Operating System: Raspbian Buster (lite)
-- Micro(sd) of 8 GB is enough. Don't go further then 32GB, it can cause issues on the rpi (raspberry)
+I have build-in long time history reports so the main tables will stay clean and users don't have to cleanup their data. 
+The dashboard has been proven to run long time on RPI 2,3,4 and 5 since 2015.
 
-# Installation:
-Open the INSTALL_RPI.pdf from the /doc directory.
+The reason i choose for RPI as a platform and not a cloud setup, is so users don't have to rely on an online platform (again). You control your data. Also the costs are low.
 
-# Support:
-I only support clean RPI installations. if you have other stuff running on your rpi, you are on your own. 
-The reason is the installer scripts are only made for an rpi environment. Other platforms can cause issues, that is beyond my scope. 
-If you want to run it on your nas or other device, you are free to download the code, i don't give support on it though. Thats up to you.
+## Flow diagram
 
-# Demo
-* Will update this with a new one soon. The old one is located here, which will give you a good impression: https://www.youtube.com/watch?v=a_dRUsGVymg
+![Flow](installation/images/diagram.jpg)
 
-#Tweakers community
-https://gathering.tweakers.net/forum/list_messages/1627615/0
+## Important
+
+- Only run the RPI in your local environment!
+- I only support clean RPI installations. Any other setup is not supported. 
+
+
+## Requirements hardware
+
+## Hardware
+
+Hardware costs are around 95 EUR.
+
+- RPI 4 or 5(4gb)
+- RPI case. Optional. 
+- Power adapter
+- Network cable
+- Micro HDMI cable
+- 8 GB (Scandisk) Micro SD Card. 
+- SD Card reader: https://www.amazon.nl/dp/B081VHSB2V
+
+Example: I have a live setup running since 2015 of which the database isn't larger then 10 MB. 
+
+## Installation
+
+[Installation](installation/INSTALL.md)

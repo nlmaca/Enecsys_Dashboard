@@ -1,20 +1,6 @@
 #!/bin/bash
 
-## Version  : 4.1.1
-## date     : april 8, 2020
-## changes  : credentials will be saved to file in the /home/pi directory
-
-## version  : 4.0
-## date     : 2017, december 12
-## changes  : automatic creation of database and pre-generated database name and password
-
-## version	: 3.0
-## language	: english
-## date		  : november 11, 2016
-## Run as   : normal user
-## This script will create a database based on the questions you answer. it will check first if the database exists or not
-
-# Create database for syspass with all privileges for the user
+# run as: sudo
 
 #set Database name
 ENECSYS_DBPREFIX="enecsys"
@@ -66,6 +52,6 @@ fi
 sleep 2
 echo "-------------------------------------------------------------"
 echo "MySQL Installation Done!"
-echo "The credentials are saved to /home/pi/db_setup.log"
+echo "The credentials are saved to /home/pi/db_setup_enecsys.log"
 echo "Save the database credentials on a safe place. You will need them in the install process"
 echo "Start script No 4."

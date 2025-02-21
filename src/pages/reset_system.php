@@ -45,29 +45,23 @@ set_time_limit(0);
 								<div class="clearfix"></div>
 							</div>
 							<div class="x_content">
-								<?php
-									if (`which reboot`) {
-								  	$OS = exec('lsb_release -si');
-								  	echo $LANG_RESTART_OS . $OS . "<br />";
-										echo "<table class='table table-striped responsive-utilities jambo_table bulk_action'>
-											<thead>
-												<tr class='headings'>
-													<th class='column-ltitle'>" . $LANG_RESTART_ACTION . "</th>
-													<th class='column-title'>" . $LANG_RESTART_DESCRIPTION . "</th>
-  											</tr>
-											</thead>
-											<tbody>
-											<tr><td><form action='restart_system.php' method='POST'>
-								    <input type='submit' name='rpi_reboot' value='" . $LANG_BUTTON_REBOOT . "' class='btn btn-info btn-xs'>
-								    <input type='hidden' name='reset_allowed' value='1'>
-								    </form></td><td>" . $LANG_RESTART_NOTE_REBOOT . "</td></tr>";
-
-								    echo "<tr><td><form action='restart_system.php' method='POST'>
-								    <input type='submit' name='rpi_reboot' value='" . $LANG_BUTTON_SHUTDOWN . "' class='btn btn-info btn-xs'>
-								    <input type='hidden' name='reset_allowed' value='2'>
-								    </form></td><td>" . $LANG_RESTART_NOTE_SHUTDOWN . "</td></tr></table>";
-								  }
-								 
+							<?php
+								$OS = exec('lsb_release -si');
+								if ($OS == 'Raspbian') {
+                                	if (`which reboot`) {
+                                    	$OS = exec('lsb_release -si');
+								    	echo $LANG_RESTART_OS . $OS . "<br />";
+										echo "<table class='table table-striped responsive-utilities jambo_table bulk_action'><thead>
+@@ -66,11 +66,7 @@
+								    	<input type='submit' name='rpi_reboot' value='" . $LANG_BUTTON_SHUTDOWN . "' class='btn btn-info btn-xs'>
+								    	<input type='hidden' name='reset_allowed' value='2'>
+								    	</form></td><td>" . $LANG_RESTART_NOTE_SHUTDOWN . "</td></tr></table>";
+								  	}
+								  	else {
+										echo $LANG_RESTART_OS . $OS . "<br />";
+								    	echo $LANG_RESTART_NOTE_NONE;
+								  	}
+								}
 								?>
 							</div>
 						</div>

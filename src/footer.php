@@ -1,6 +1,6 @@
     <footer>
       <div class="">
-    	  <p class="pull-right"><?php echo $LANG_DASHBOARD_TITLE;?> | Powered by <a href='http://www.vanmarion.nl' target='_blank'>J. van Marion</a></p>
+    	  <p class="pull-right"><?php echo $LANG_DASHBOARD_TITLE;?> | Powered by <a href='https://www.vanmarion.nl' target='_blank'>J. van Marion</a></p>
       </div>
       <div class="clearfix"></div>
     </footer>
