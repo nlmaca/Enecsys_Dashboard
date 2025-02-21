@@ -38,42 +38,7 @@
 			<div class="x_content">
 				<!-- start accordion -->
 				<div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
-					<div class="panel">
-						<a class="panel-heading" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-							<h4 class="panel-title">Intro</h4>
-						</a>
-						<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-							<div class="panel-body">
-							<b>Update march/april 2020</b>
-							support for Raspbian buster, network installer upgraded and several bugfixes. The readme and releasenotes on the github page will show you all the 
-							details https://github.com/nlmaca/Enecsys_Dashboard.
-							<br><br>
-							<b>Updated 2019, november 25</b>
-								  Got several requests that the scripts didn't work anymore for Raspbian Buster, so i decided to upgrade the installers. 
-								  <br><br>
-							<b>Updated 2017, december 12</b>
-  								I made an update (Version 4.0), because of the new image of Raspbian (Stretch). This resulted in broken installer scripts and outdated php code in the dashboard.
-								So i decided to rebuild some scripts and checking the code. Maybe in the near future i will do some minor changes, but so far i don't get complaints
-								from users about non-working software, so i leave it as it is now.
-								<br><br>
-
-
-
-								I would like to state first that i had a lot of fun building this. It started out to build it for my dad, after that i had so many ideas and decided
-								to build a complete dashboard for it. I have no idea how many hours i totally spend on this project (over 100 hours at least). <br />
-								It didn't matter how long it took:D<br /><br />
-								Lot of people were surprised by the fact that i don't have solar panels myself;).<br /><br />
-								The code is completely free and sure can be build a lot better and more efficient. Im not a programmer, but build it with the best intentions.<br />
-								In the following dropdowns i will explain the dashboard, settings, status codes, troubleshooting<br /><br />
-								This is version 3.0 and will be my last one. I don't have any intentions to build or extend the possibilities, its time to move on to other projects i want to build.
-								Maybe at some point i will do some upgrades, but for now i quit the active development. The dashboard is functional,
-								the database is optimized so people should be able to use for it the coming time :D <br /><br />
-								I hope this dashboard will give you some insight in your Enecsys solar panels.<br /><br />
-								You are always free to make a donation of course. its up to you. There is a donate button in the dashboard menu or your can use this link:<br />
-								<a href="https://www.paypal.me/nlmaca">Donate to Jeroen van Marion / NLMaca</a><br />
-							</div>
-						</div>
-					</div>
+					
   					<!-- next accordion -->
 					<div class="panel">
 					    <a class="panel-heading collapsed" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">

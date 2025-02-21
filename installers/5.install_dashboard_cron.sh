@@ -1,18 +1,5 @@
 #!/bin/bash
 
-## Version  : 4.1.1
-## date     : april 8, 2020
-## Changes  : updated zipfile name. added check for correct network adapter name in last step
-
-
-## version	: 3.0
-## date		: december 10 2016
-
-
-## features	: download of dashboard and installation of cronjobs
-## make sure to make the file executable, otherwise you might get an "(" Unexpected error
-## chmod +x 3.sudo_install_dashboard_cron.sh
-
 ## run as normal pi user:  ./5.install_dashboard_cron.sh webdirectory
 ## example:  ./5.install_dashboard_cron.sh enecsys_solar (will result in /var/www/html/enecsys_solar)
 

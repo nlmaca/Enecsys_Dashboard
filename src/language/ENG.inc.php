@@ -5,7 +5,7 @@
 	*/
 
 	//System version: 3.0
-	$LANG_DASHBOARD_TITLE = 'Enecsys Solar 4.2.0';
+	$LANG_DASHBOARD_TITLE = 'Enecsys Solar 5.0.0';
 
 	//login
 	$LANG_LOGIN = "Login";
@@ -60,7 +60,7 @@
 	$LANG_TOPTILE_CURRENT_ET = "Earnings Today";
 	$LANG_TOPTILE_CURRENT_DOD = "Days of Data";
 	$LANG_TOPTILE_CURRENT_DATE = "Date";
-	$LANG_TOPTILE_LAST_PULSE = "Last Pulse: ";
+	$LANG_TOPTILE_LAST_PULSE = "Last TotalPower / PVOutput Pulse: ";
 	$LANG_TOPTILE_NO_INPUT = "[No Input Data!] ";
 	$LANG_TOPTILE_OVERTIME = " / Longer than 1 hour ago";
 

@@ -1,14 +1,6 @@
 #!/bin/bash
 
-## version	: 3.0
-## language	: english
-## date		: november 12, 2016
-## Run as normal pi user with sudo (sudo ./addsudoers.sh)
-## This script will add the apache user to allow it to reboot and shutdown the pi from the dashboard
-
-# run file as normal user, but file needs to have root permission rights
-# chmod +x addsudoers.sh will do the trick to skip the password
-# run as: ./addsudoers.sh
+# run as: sudo
 
 if sudo cat /etc/sudoers | grep -xqFe "www-data ALL = NOPASSWD: /sbin/reboot, /sbin/halt"
 then

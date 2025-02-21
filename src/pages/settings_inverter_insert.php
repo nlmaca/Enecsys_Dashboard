@@ -37,9 +37,11 @@ if(empty($_SESSION['user'])) {
 	$Wpanel_2 = $connect->escape_string(htmlspecialchars($_POST['Wpanel_2']));
 	$InverterAlias = $connect->escape_string(htmlspecialchars($_POST['inverter_alias']));
 
+	$BuildDate = $BuildDate ?: null;
+
 	//check if inverter already exists
 	$sqlcheck = "select inverter_serial from inverters where inverter_serial = $InverterSerial";
-		$resultcheck = $connect->query($sqlcheck);
+	$resultcheck = $connect->query($sqlcheck);
 	if ($resultcheck->num_rows > 0) {
 		echo "<div class='right_col' role='main'>
 		<div class=''>
@@ -59,7 +61,7 @@ if(empty($_SESSION['user'])) {
 	// if not exists insert into db
 	else {
 		$sql = "INSERT INTO inverters (`inverter_serial`, `inverter_type`, `inverter_alias`, `duo_single`, `parts_nr`, `build_date`, `Wpanel_1`, `Wpanel_2`)
-    VALUES ('$InverterSerial', '$InverterType', '$InverterAlias', '$DuoSingle', '$PartsNr', '$BuildDate', $Wpanel_1, $Wpanel_2)";
+    	VALUES ('$InverterSerial', '$InverterType', '$InverterAlias', '$DuoSingle', '$PartsNr', '$BuildDate', $Wpanel_1, $Wpanel_2)";
 
 		$result = $connect->query($sql);
 		if (!$result and $mysqliDebug) {

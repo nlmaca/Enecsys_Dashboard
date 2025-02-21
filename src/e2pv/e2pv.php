@@ -8,7 +8,7 @@
  * Edited original file. Making use of settings in DB instead of config file
  * Changed CONSTANTS to variables
  * build in array for ignored inverters
- *
+ * feb 2025: updated for PHP8.x support
  */
 // By default, $ignored array is empty
 $ignored = array();
@@ -18,7 +18,6 @@ require_once ('../include/config.php');
 
 //e2pv settings
 //build in Array result of ignored inverters::
-//added by J. van Marion - mysql CONNECTION
 $IgnoreCheck= mysqli_query($connect,"select e2pv_inverter from e2pv_ignore");
 if ($IgnoreCheck->num_rows > 0) {
   while($row=mysqli_fetch_array($IgnoreCheck)){
@@ -29,7 +28,7 @@ else {
   $ignored = array();
 }
 
-//added by J. van Marion - mysql CONNECTION
+// get settings
 $e2pv_settings = mysqli_query($connect,"select * from e2pv_settings");
 if ($e2pv_settings->num_rows > 0) {
 	while($row=mysqli_fetch_array($e2pv_settings)){
@@ -67,7 +66,7 @@ function fatal($msg) {
   exit(1);
 }
 
-// $otal is an array holding last received values per inverter, indexed by
+// $total is an array holding last received values per inverter, indexed by
 // inverter id. Each value is an array of name => value mappings, where name is:
 // TS, Energy, Power array, Temp, Volt, State
 $total = array();
@@ -126,12 +125,15 @@ function submit($total, $systemid, $apikey) {
     report(sprintf('=> PVOutput (%s) v2=%dW v5=%.1fC v6=%.1fV',
       count($total) == 1 ? $systemid : 'A', $p, $temp, $volt));
   $time = time();
-  $data = array('d' => strftime('%Y%m%d', $time),
-    't' => strftime('%H:%M', $time),
+
+  // php8 fix
+  $data = array(
+    'd' => date('Ymd', $time), // Equivalent to '%Y%m%d'
+    't' => date('H:i', $time), // Equivalent to '%H:%M'
     'v2' => $p,
     'v5' => $temp,
     'v6' => $volt
-  );
+);
 
   // Only send cummulative total energy in LIFETIME mode
   if ($LIFETIME) {
@@ -207,8 +209,8 @@ function submit_mysql($v, $LifeWh) {
   }
 
   $query = 'INSERT INTO enecsys(' .
-    'id, wh, dcpower, dccurrent, efficiency, acfreq, acvolt, temp, state) ' .
-     'VALUES(%d, %d, %d, %f, %f, %d, %f, %f, %d)';
+    'id, wh, dcpower, dccurrent, efficiency, acfreq, acvolt, temp, state, ts) ' .
+     'VALUES(%d, %d, %d, %f, %f, %d, %f, %f, %d, NOW())';
   $q = sprintf($query,
     mysqli_real_escape_string($link, $v['IDDec']),
     mysqli_real_escape_string($link, $LifeWh),
@@ -228,7 +230,7 @@ function submit_mysql($v, $LifeWh) {
 }
 
 /*
- * Loop processing lines from the gatway
+ * Loop processing lines from the gateway
  */
 function process(Connection $conn) {
   global $VERBOSE, $IDCOUNT, $APIKEY,$SYSTEMID, $LIFETIME, $MODE, $EXTENDED, $AC, $MYSQLHOST, $MYSQLUSER, $MYSQLPASSWORD, $MYSQLDB, $MYSQLPORT;
@@ -364,60 +366,62 @@ function setup() {
  * Loop accepting connections from the gateway
  */
 function loop($socket) {
-  // array used for socket_select, index by string repr of resource
-  $selarray = array('accept' => $socket);
-  // array of Connection instances, index by same
-  $connections = array();
-  $lastclean = time();
+    $selarray = array('accept' => $socket);
+    $connections = array();
+    $lastclean = time();
 
-  while (true) {
-    $a = $selarray;
-    $no = null;
-    $err = socket_select($a, $no, $no, 30, 0);
-    if ($err === false) {
-      fatal('socket_select');
-    }
-    while (count($a) > 0) {
-      // process sockets with work pending
-      $s = array_shift($a);
-      // Accepting socket?
-      if ($s == $socket) {
-        $client = socket_accept($socket);
-        if ($client === false) {
-          continue;
-        }
-        $conn = new Connection($client);
-        $selarray[(string)$client] = $client;
-        $connections[(string)$client] = $conn;
-        report('Accepted connection #' . count($connections) .  ' from ' .
-          $conn->toString());
-      } else {
-        // Regular connection socket
-        $conn = $connections[(string)$s];
-        if (!$conn->reader()) {
-          $conn->close();
-          unset($selarray[(string)$s]);
-          unset($connections[(string)$s]);
+    while (true) {
+      $a = $selarray;
+      $no = null;
+      $err = socket_select($a, $no, $no, 30, 0);
+      if ($err === false) {
+        fatal('socket_select');
+      }
+
+      while (count($a) > 0) {
+        $s = array_shift($a);
+
+        if ($s === $socket) { // Accepting socket?
+          $client = socket_accept($socket);
+          if ($client === false) {
+            continue;
+          }
+
+          $client_id = spl_object_id($client);
+          $conn = new Connection($client);
+          $selarray[$client_id] = $client;
+          $connections[$client_id] = $conn;
+
+          report('Accepted connection #' . count($connections) . ' from ' . $conn->toString());
         } else {
-          process($conn);
+          $conn_id = spl_object_id($s);
+          $conn = $connections[$conn_id] ?? null;
+
+          if ($conn && !$conn->reader()) {
+            $conn->close();
+            unset($selarray[$conn_id]);
+            unset($connections[$conn_id]);
+          } else {
+            process($conn);
+          }
         }
       }
-    }
-    // Cleanup stale connections
-    $time = time();
-    if ($lastclean < $time - 30) {
-      $lastclean = time();
-      foreach ($connections as $key =>$conn) {
-        if (!$conn->alive($time)) {
-          report('A connection went dead...');
-          $conn->close();
-          unset($selarray[$key]);
-          unset($connections[$key]);
+
+      // Cleanup stale connections
+      $time = time();
+      if ($lastclean < $time - 30) {
+        $lastclean = time();
+        foreach ($connections as $key => $conn) {
+          if (!$conn->alive($time)) {
+            report('A connection went dead...');
+            $conn->close();
+            unset($selarray[$key]);
+            unset($connections[$key]);
+          }
         }
       }
     }
   }
-}
 
 
 if (isset($_SERVER['REQUEST_METHOD'])) {
@@ -499,3 +503,4 @@ class Connection {
   }
 }
 ?>
+
