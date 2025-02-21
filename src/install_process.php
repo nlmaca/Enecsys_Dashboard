@@ -205,7 +205,7 @@ date_default_timezone_set($TimeZone);
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="database_host">Database Host <span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="database_host" name="database_host" value="127.0.0.1" required="required" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="database_host" name="database_host" value="127.0.0.1" required="required" readonly class="form-control col-md-7 col-xs-12">
       </div>
   </div>
 	<div class="form-group">
