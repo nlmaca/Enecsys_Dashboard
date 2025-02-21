@@ -66,7 +66,7 @@ function fatal($msg) {
   exit(1);
 }
 
-// $otal is an array holding last received values per inverter, indexed by
+// $total is an array holding last received values per inverter, indexed by
 // inverter id. Each value is an array of name => value mappings, where name is:
 // TS, Energy, Power array, Temp, Volt, State
 $total = array();

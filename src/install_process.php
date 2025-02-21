@@ -75,9 +75,8 @@ function step_1(){
 
 	echo "<div class='right_col' role='main'><div class=''><div class='x_content'>";
 	echo "<h3>Step 1:</h3>
-		<p>Copyright (c) 2016 Jeroen van Marion jeroen@vanmarion.nl<br>
+		<p>Copyright (c) 2025 / https://vanmarion.nl<br>
 		Permission to use, copy, modify, and distribute this software for any purpose without fee is hereby granted.<br>
-		just give me some credit when you talk about it :D<br><br>
 		</p>
 		<form action='install_process.php?step=1' method='post'>
 		<p>I agree to this:<input type='checkbox' name='agree' /></p>
@@ -185,7 +184,7 @@ if ($settings->num_rows > 0) {
   }
 }
 
-// if no values set yet set default settings
+// if no values are given, set default settings
 else {
 	$language = "ENG";
 	$TimeZone = "Europe/Amsterdam";
@@ -244,11 +243,11 @@ date_default_timezone_set($TimeZone);
 function step_4(){
 	echo "<div class='right_col' role='main'><div class=''><div class='x_content'>";
 	echo "<h3>Step 4: Finalize</h3>";
-  echo "Deployment complete.<br><br />";
-  echo "*NOTE: First login into your dashboard. If everything is ok, make sure to run the cleanup script from the command line. See the installation procedure for that";
+  echo "Deployment complete.<br /><br />";
+  echo "*NOTE: First login into your dashboard. If everything is ok, make sure to run the cleanup script from the command line. Check the installation manual.";
 	echo "Your dashboard URL: ";
-	echo "http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "<br>";
-  echo "Default login: <b>admin</b><br>Default password: <b>dashboard</b><br />";
+	echo "http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "<br /><br />";
+  echo "Default login: <b>admin</b><br>Default password: <b>dashboard</b><br /><br />";
 	echo "<a href='" . dirname($_SERVER['REQUEST_URI']) . "' class='btn btn-info'><u></u><b>Go to your dashboard</b></u></a><br />";
 	echo "</div></div></div>";
 }

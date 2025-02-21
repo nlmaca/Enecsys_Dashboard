@@ -60,22 +60,8 @@ if(empty($_SESSION['user'])) {
 	}
 	// if not exists insert into db
 	else {
-		#$sql = "INSERT INTO inverters (`inverter_serial`, `inverter_type`, `inverter_alias`, `duo_single`, `parts_nr`, `build_date`, `Wpanel_1`, `Wpanel_2`)
-    	#VALUES ('$InverterSerial', '$InverterType', '$InverterAlias', '$DuoSingle', '$PartsNr', '$BuildDate', $Wpanel_1, $Wpanel_2)";
-		$stmt = $connect->prepare("INSERT INTO inverters (`inverter_serial`, `inverter_type`, `inverter_alias`, `duo_single`, `parts_nr`, `build_date`, `Wpanel_1`, `Wpanel_2`)
-    	VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-		$stmt->bind_param(
-			'ssssssss',
-			$InverterSerial,
-			$InverterType,
-			$InverterAlias,
-			$DuoSingle,
-			$PartsNr,
-			$BuildDate,
-			$Wpanel_1,
-			$Wpanel_2
-		);
-
+		$sql = "INSERT INTO inverters (`inverter_serial`, `inverter_type`, `inverter_alias`, `duo_single`, `parts_nr`, `build_date`, `Wpanel_1`, `Wpanel_2`)
+    	VALUES ('$InverterSerial', '$InverterType', '$InverterAlias', '$DuoSingle', '$PartsNr', '$BuildDate', $Wpanel_1, $Wpanel_2)";
 
 		$result = $connect->query($sql);
 		if (!$result and $mysqliDebug) {

@@ -60,7 +60,7 @@
 	$LANG_TOPTILE_CURRENT_ET = "Verdiend vandaag";
 	$LANG_TOPTILE_CURRENT_DOD = "Dagen van data";
 	$LANG_TOPTILE_CURRENT_DATE = "Datum";
-	$LANG_TOPTILE_LAST_PULSE = "Laatste Pulse: ";
+	$LANG_TOPTILE_LAST_PULSE = "Laatste Total Power / PVoutput Pulse: ";
 	$LANG_TOPTILE_NO_INPUT = "[Geen Input Data!] ";
 	$LANG_TOPTILE_OVERTIME = " / Langer dan 1 uur geleden";
 

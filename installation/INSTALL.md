@@ -573,6 +573,29 @@ How to fix offline statu: Reboot the RPI.
 
 ![Gateway](images/38.jpg)
 
+## PhpMyAdmin root login
+
+Want to be able to login in as root in phpmyadmin? Run these commands on the RPI via SSH. Keep the mysql **root** password at hand. 
+
+Change MYSQL_ROOT_PASSWORD for your root password
+
+```
+sudo mysql -u root
+
+MariaDB [(none)]> ALTER USER 'root'@'localhost' IDENTIFIED VIA mysql_native_password USING PASSWORD('MYSQL_ROOT_PASSWORD');
+
+FLUSH PRIVILIGES;
+
+exit;
+```
+
+You are now able to login via phpmyadmin with these credentials:
+```
+url: http://<RPI_IPADDRESS>/phpmyadmin
+username: root
+password: <MYSQL_ROOT_PASSWORD>
+```
+
 ## Questions
 
 in case of any questions feel free to open an issue on the github page.
